@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  Where to eat
+//
+//  Created by 王磊 on 16/3/22.
+//  Copyright © 2016年 WLtech. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "CommonMacro.h"
+
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="firstView">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_alart" translatesAutoresizingMaskIntoConstraints="NO" id="Bpv-yy-JM8">
+                    <rect key="frame" x="0.0" y="407" width="295" height="97"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Bpv-yy-JM8" secondAttribute="height" multiplier="750:246" id="lzR-SP-RhH"/>
+                    </constraints>
+                </imageView>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_alart" translatesAutoresizingMaskIntoConstraints="NO" id="xeN-C8-cBl">
+                    <rect key="frame" x="0.0" y="0.0" width="295" height="230"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="xeN-C8-cBl" secondAttribute="height" multiplier="750:585" id="yaf-hu-9DN"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mid_alart" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-wL-ctr">
+                    <rect key="frame" x="0.0" y="230" width="295" height="177"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xeN-C8-cBl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1TD-XL-EJm"/>
+                <constraint firstItem="Bpv-yy-JM8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ALQ-O7-ehm"/>
+                <constraint firstAttribute="trailing" secondItem="bYY-wL-ctr" secondAttribute="trailing" id="Ecx-s8-C2j"/>
+                <constraint firstItem="bYY-wL-ctr" firstAttribute="top" secondItem="xeN-C8-cBl" secondAttribute="bottom" id="HzC-pa-NIU"/>
+                <constraint firstItem="bYY-wL-ctr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZDR-bh-3eP"/>
+                <constraint firstAttribute="bottom" secondItem="Bpv-yy-JM8" secondAttribute="bottom" id="eb0-On-f4a"/>
+                <constraint firstAttribute="trailing" secondItem="Bpv-yy-JM8" secondAttribute="trailing" id="kzH-Rl-Ie9"/>
+                <constraint firstItem="Bpv-yy-JM8" firstAttribute="top" secondItem="bYY-wL-ctr" secondAttribute="bottom" id="pVR-D1-Zhz"/>
+                <constraint firstAttribute="trailing" secondItem="xeN-C8-cBl" secondAttribute="trailing" id="qE1-og-KQg"/>
+                <constraint firstItem="xeN-C8-cBl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rgl-YN-fBq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="321.5" y="318"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bottom_alart" width="375" height="123"/>
+        <image name="mid_alart" width="246" height="123"/>
+        <image name="top_alart" width="375" height="292"/>
+    </resources>
+</document>
