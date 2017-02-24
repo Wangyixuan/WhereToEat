@@ -62,8 +62,6 @@
 		9BC8808F1CC0C98B006341D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8808E1CC0C98B006341D4 /* Reachability.m */; };
 		9BC880921CC0CB8D006341D4 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC880911CC0CB8D006341D4 /* GuideViewController.m */; };
 		9BC880981CC0E2F1006341D4 /* SetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC880971CC0E2F1006341D4 /* SetTableViewController.m */; };
-		9BD95BD71CDAE641004D8BC8 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD95BCE1CDAE641004D8BC8 /* GoogleMobileAds.framework */; };
-		9BD95BD81CDAE641004D8BC8 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BD95BD61CDAE641004D8BC8 /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,14 +181,6 @@
 		9BC880911CC0CB8D006341D4 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		9BC880961CC0E2F1006341D4 /* SetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTableViewController.h; sourceTree = "<group>"; };
 		9BC880971CC0E2F1006341D4 /* SetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTableViewController.m; sourceTree = "<group>"; };
-		9BD95BCE1CDAE641004D8BC8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		9BD95BD01CDAE641004D8BC8 /* GADMAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
-		9BD95BD11CDAE641004D8BC8 /* GADMAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
-		9BD95BD21CDAE641004D8BC8 /* GADMediationAdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMediationAdRequest.h; sourceTree = "<group>"; };
-		9BD95BD31CDAE641004D8BC8 /* GADMEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMEnums.h; sourceTree = "<group>"; };
-		9BD95BD41CDAE641004D8BC8 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
-		9BD95BD51CDAE641004D8BC8 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
-		9BD95BD61CDAE641004D8BC8 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +208,6 @@
 				9B123A4F1CBD15B000FCE823 /* MediaPlayer.framework in Frameworks */,
 				9B123A4D1CBD15A600FCE823 /* MessageUI.framework in Frameworks */,
 				9B123A4B1CBD159E00FCE823 /* StoreKit.framework in Frameworks */,
-				9BD95BD71CDAE641004D8BC8 /* GoogleMobileAds.framework in Frameworks */,
 				9B84AC0A1D46FFF40062D663 /* libWeChatSDK.a in Frameworks */,
 				9B123A451CBD151000FCE823 /* BaiduMapAPI_Search.framework in Frameworks */,
 				9B123A461CBD151000FCE823 /* BaiduMapAPI_Utils.framework in Frameworks */,
@@ -347,22 +336,12 @@
 				9B123A311CBD151000FCE823 /* sdk */,
 				9B123A6F1CBD170500FCE823 /* SphereView */,
 				9B123A6E1CBD167E00FCE823 /* selfLib */,
-				9B123A231CBD151000FCE823 /* ADMob */,
 				9B123A2D1CBD151000FCE823 /* AppDelegate.h */,
 				9B123A2E1CBD151000FCE823 /* AppDelegate.mm */,
 				9B123A2F1CBD151000FCE823 /* CommonMacro.h */,
 				9B123A301CBD151000FCE823 /* PrefixHeader.pch */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		9B123A231CBD151000FCE823 /* ADMob */ = {
-			isa = PBXGroup;
-			children = (
-				9BD95BCE1CDAE641004D8BC8 /* GoogleMobileAds.framework */,
-				9BD95BCF1CDAE641004D8BC8 /* Mediation Adapters */,
-			);
-			path = ADMob;
 			sourceTree = "<group>";
 		};
 		9B123A311CBD151000FCE823 /* sdk */ = {
@@ -490,20 +469,6 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		9BD95BCF1CDAE641004D8BC8 /* Mediation Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				9BD95BD01CDAE641004D8BC8 /* GADMAdNetworkAdapterProtocol.h */,
-				9BD95BD11CDAE641004D8BC8 /* GADMAdNetworkConnectorProtocol.h */,
-				9BD95BD21CDAE641004D8BC8 /* GADMediationAdRequest.h */,
-				9BD95BD31CDAE641004D8BC8 /* GADMEnums.h */,
-				9BD95BD41CDAE641004D8BC8 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */,
-				9BD95BD51CDAE641004D8BC8 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */,
-				9BD95BD61CDAE641004D8BC8 /* README.txt */,
-			);
-			path = "Mediation Adapters";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,7 +589,6 @@
 				9B123A811CBE1DD300FCE823 /* SVProgressHUD.bundle in Resources */,
 				9B123A491CBD151000FCE823 /* MyPopView.xib in Resources */,
 				9B1239EB1CBD14A200FCE823 /* Assets.xcassets in Resources */,
-				9BD95BD81CDAE641004D8BC8 /* README.txt in Resources */,
 				9B84AC111D4742290062D663 /* ShareView.xib in Resources */,
 				9B58240D1CCDC4300020BA5C /* Main.storyboard in Resources */,
 			);

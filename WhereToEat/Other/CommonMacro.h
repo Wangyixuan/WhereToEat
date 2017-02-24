@@ -34,4 +34,7 @@
 //app store 跳转链接
 #define appURL @"http://itunes.apple.com/us/app/id1112067909"
 
+// Block weakself strongself
+#define WLWEAKSELF __weak typeof(self) weakself = self;
+#define WLSTRONGSELF __strong typeof(weakself) strongself = weakSelf;
 #endif /* CommonMacro_h */

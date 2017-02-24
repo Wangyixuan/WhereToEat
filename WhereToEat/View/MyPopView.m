@@ -142,5 +142,8 @@
         self.poisionBlock(self.toCoord,self.titleLabel.text);
     }
 }
+- (IBAction)closeBtnClick:(id)sender {
+    [self removeFromSuperview];
+}
 
 @end
