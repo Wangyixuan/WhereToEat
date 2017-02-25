@@ -37,4 +37,7 @@
 // Block weakself strongself
 #define WLWEAKSELF __weak typeof(self) weakself = self;
 #define WLSTRONGSELF __strong typeof(weakself) strongself = weakSelf;
+
+#define WLViewController(StoryboardID) [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:StoryboardID];
+
 #endif /* CommonMacro_h */

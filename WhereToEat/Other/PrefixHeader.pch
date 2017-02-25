@@ -10,6 +10,16 @@
 #define PrefixHeader_pch
 
 #import "CommonMacro.h"
+//ThirdLib
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "SVProgressHUD.h"
 
+//view
+#import "MyPopView.h"
+//manager
+#import "LocalManager.h"
+
+#import "CategoryHeader.h"
 
 #endif /* PrefixHeader_pch */

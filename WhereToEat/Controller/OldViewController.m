@@ -7,13 +7,11 @@
 //
 
 #import "OldViewController.h"
-//广告相关 暂时关闭
-//#import <GoogleMobileAds/GoogleMobileAds.h>
+
 #import "XLSphereView.h"
-#import "MyPopView.h"
-#import "LocalManager.h"
-#import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import "DetailViewController.h"
+#import "NewViewController.h"
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
 
 @interface OldViewController ()<BMKPoiSearchDelegate>//GADInterstitialDelegate,
 //@property (strong, nonatomic) GADBannerView *bannerView;
@@ -44,16 +42,20 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createBallView) name:@"updatePlist" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removePopView) name:@"removePopView" object:nil];
+    
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.search.delegate = self;
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.search.delegate = nil;
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -197,7 +199,8 @@
 //去添加按钮方法
 -(void)goSearch{
     //跳转到搜索页面
-    self.tabBarController.selectedIndex=1;
+    NewViewController *new = WLViewController(@"NewViewController");
+    [self.navigationController pushViewController:new animated:YES];
 }
 
 //选出随机结果
@@ -211,7 +214,8 @@
             [self buttonPressed:result];
         }
     }else{
-        self.tabBarController.selectedIndex=1;
+        NewViewController *new = WLViewController(@"NewViewController");
+        [self.navigationController pushViewController:new animated:YES];
     }
 }
 //根据搜索结果 弹出相应popView
@@ -236,6 +240,7 @@
         detailVC.detailURL = detailURL;
         UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:detailVC];
         [weakself presentViewController:navController animated:YES completion:nil];
+        
     };
 }
 
