@@ -68,7 +68,8 @@
         WLLog(@"share");
         //判断是否有微信
         if ([WXApi isWXAppInstalled]) {
-            ShareView *shareV = [ShareView showShareViewWithFrame:CGRectMake(0, 0, WLScreenW, WLScreenH) andView:self.tabBarController.view];            
+            ShareView *shareV = [ShareView showShareViewWithFrame:CGRectMake(0, 0, WLScreenW, WLScreenH) andView:self.tabBarController.view];
+            WLLog(@"%@",shareV);
         }else{
             [SVProgressHUD showErrorWithStatus:@"您还没有安装微信" duration:2.0];
         }
