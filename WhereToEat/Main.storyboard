@@ -1,72 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6nG-74-jgu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6nG-74-jgu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--通讯录-->
-        <scene sceneID="l1P-cv-V8R">
-            <objects>
-                <navigationController id="vaS-ft-Td0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通讯录" image="Button_search" selectedImage="Button_search_sel" id="Wfa-gN-AQD"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="neX-IW-rLP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="crJ-HE-vOT" kind="relationship" relationship="rootViewController" id="xwy-TJ-YP8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yY9-bE-hkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="30" y="408"/>
-        </scene>
-        <!--通讯录-->
-        <scene sceneID="fXP-LV-xgP">
-            <objects>
-                <viewController id="crJ-HE-vOT" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gt2-BQ-Lkq"/>
-                        <viewControllerLayoutGuide type="bottom" id="4A4-om-dyF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iJT-4R-jgy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Wx-Bq-WyN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <sections/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="0Wx-Bq-WyN" secondAttribute="trailing" id="AvB-Hn-wk2"/>
-                            <constraint firstItem="0Wx-Bq-WyN" firstAttribute="leading" secondItem="iJT-4R-jgy" secondAttribute="leading" id="Hrv-xk-FQf"/>
-                            <constraint firstItem="4A4-om-dyF" firstAttribute="top" secondItem="0Wx-Bq-WyN" secondAttribute="bottom" id="PHO-2G-xaU"/>
-                            <constraint firstItem="0Wx-Bq-WyN" firstAttribute="top" secondItem="iJT-4R-jgy" secondAttribute="top" id="laJ-zJ-mPH"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="通讯录" id="mPe-Ae-Se5">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="5bE-Jk-Pr3"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="0Wx-Bq-WyN" id="1VY-G2-Af7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dCE-ff-weW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="850" y="411"/>
-        </scene>
         <!--搜索-->
         <scene sceneID="U1a-ku-gsE">
             <objects>
-                <viewController storyboardIdentifier="NewViewController" title="搜索" hidesBottomBarWhenPushed="YES" id="6kN-2p-5te" customClass="NewViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LWf-Xz-CCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="NewViewController" title="搜索" id="6kN-2p-5te" customClass="NewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HZ5-MS-1CM"/>
                         <viewControllerLayoutGuide type="bottom" id="Q2V-Q4-kkC"/>
@@ -76,10 +23,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="搜索" image="Button_search" id="pnd-eq-XJ1"/>
+                    <navigationItem key="navigationItem" id="EZQ-WL-VaU"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LWf-Xz-CCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="408"/>
+            <point key="canvasLocation" x="182" y="418"/>
         </scene>
         <!--设置-->
         <scene sceneID="EPh-Oc-bsM">
@@ -96,7 +44,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yd9-TW-Qsa" id="5iP-iM-2ue">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconImage" translatesAutoresizingMaskIntoConstraints="NO" id="0Ld-wl-9Ib">
@@ -139,7 +87,7 @@
                                         <rect key="frame" x="0.0" y="210" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gUP-bv-tfz" id="vHg-Ym-Bem">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="左手模式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoO-Yy-0xv">
@@ -171,7 +119,7 @@
                                         <rect key="frame" x="0.0" y="254" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eGp-tw-M2J" id="89j-Rv-BDL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tttttt9676@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUw-Xk-eRA">
@@ -207,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="298" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ClO-ae-HuF" id="XMN-dh-642">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18401796766" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="394-Q2-Ews">
@@ -243,11 +191,11 @@
                                         <rect key="frame" x="0.0" y="342" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CNE-m3-CJQ" id="bcY-hI-pma">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="分享" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jAV-oQ-Ixm">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -276,23 +224,6 @@
             <point key="canvasLocation" x="182" y="1157"/>
         </scene>
         <!--收藏-->
-        <scene sceneID="xyl-5c-75z">
-            <objects>
-                <navigationController id="rFU-MQ-bu1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="收藏" image="Button" selectedImage="Button_sel" id="gkb-vu-Ub6"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mKv-gC-roI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="PNg-6x-T47" kind="relationship" relationship="rootViewController" id="SPm-gx-1yq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QLB-xd-bRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="164" y="-342"/>
-        </scene>
-        <!--Old View Controller-->
         <scene sceneID="eIb-yz-MjZ">
             <objects>
                 <viewController storyboardIdentifier="OldViewController" id="PNg-6x-T47" customClass="OldViewController" sceneMemberID="viewController">
@@ -305,13 +236,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="收藏" image="Button" id="JGU-rz-Ram"/>
                     <navigationItem key="navigationItem" id="51h-x9-zD0">
                         <barButtonItem key="backBarButtonItem" title="返回" id="jzR-fe-xJc"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOf-uV-UmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="-290"/>
+            <point key="canvasLocation" x="182" y="-278"/>
         </scene>
         <!--Guide View Controller-->
         <scene sceneID="ddw-4C-yck">
@@ -410,8 +342,8 @@
                         <color key="tintColor" red="1" green="0.50196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rFU-MQ-bu1" kind="relationship" relationship="viewControllers" id="S2j-Ng-kU6"/>
-                        <segue destination="vaS-ft-Td0" kind="relationship" relationship="viewControllers" id="NRF-Zn-UnQ"/>
+                        <segue destination="PNg-6x-T47" kind="relationship" relationship="viewControllers" id="GJI-Yz-2Xo"/>
+                        <segue destination="6kN-2p-5te" kind="relationship" relationship="viewControllers" id="cZs-Hr-kGu"/>
                         <segue destination="AyP-Zy-sJc" kind="relationship" relationship="viewControllers" id="Y1F-D7-mam"/>
                     </connections>
                 </tabBarController>
@@ -423,8 +355,6 @@
     <resources>
         <image name="Button" width="45" height="35"/>
         <image name="Button_search" width="45" height="35"/>
-        <image name="Button_search_sel" width="45" height="35"/>
-        <image name="Button_sel" width="45" height="35"/>
         <image name="Button_set" width="45" height="35"/>
         <image name="Button_set_sel" width="45" height="35"/>
         <image name="QR" width="150" height="150"/>

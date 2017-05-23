@@ -62,7 +62,7 @@
     [super viewDidLoad];
     
     //创建地图
-    BMKMapView *mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    BMKMapView *mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.mapView = mapView;
     [self.view addSubview:self.mapView];
     _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
@@ -70,7 +70,7 @@
     _mapView.isSelectedAnnotationViewFront = YES;//选中的标注在最前面
 
     //关键词输入
-    UITextField *keyWord = [[UITextField alloc]initWithFrame:CGRectMake(WLScreenW*(70/414.0), 70, WLScreenW-WLScreenW*(140/414.0), btnsW)];
+    UITextField *keyWord = [[UITextField alloc]initWithFrame:CGRectMake(WLScreenW*(70/414.0), 25, WLScreenW-WLScreenW*(140/414.0), btnsW)];
     keyWord.backgroundColor = [UIColor whiteColor];
     keyWord.borderStyle = UITextBorderStyleRoundedRect;
     keyWord.clearButtonMode = UITextFieldViewModeWhileEditing;

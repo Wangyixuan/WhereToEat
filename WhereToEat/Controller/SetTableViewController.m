@@ -26,7 +26,13 @@
     //获取版本信息
     NSString *verStr = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
     NSString *buildStr = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+#ifdef DEBUG
+    self.VersionLabel.text = [NSString stringWithFormat:@"For iPhone Dev V%@-%@",verStr,buildStr];
+#else
     self.VersionLabel.text = [NSString stringWithFormat:@"For iPhoneV%@-%@",verStr,buildStr];
+
+#endif
+    
     self.tableView.tableFooterView = [[UIView alloc]init];
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"leftHand"]==YES) {
         self.leftHand.on = YES;
@@ -68,7 +74,8 @@
         WLLog(@"share");
         //判断是否有微信
         if ([WXApi isWXAppInstalled]) {
-            ShareView *shareV = [ShareView showShareViewWithFrame:CGRectMake(0, 0, WLScreenW, WLScreenH) andView:self.tabBarController.view];            
+            ShareView *shareV = [ShareView showShareViewWithFrame:CGRectMake(0, 0, WLScreenW, WLScreenH) andView:self.tabBarController.view];
+            WLLog(@"%@",shareV);
         }else{
             [SVProgressHUD showErrorWithStatus:@"您还没有安装微信" duration:2.0];
         }
