@@ -7,12 +7,6 @@
 //
 
 #import "NewViewController.h"
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
-#import <BaiduMapAPI_Base/BMKBaseComponent.h>
-#import <BaiduMapAPI_Location/BMKLocationComponent.h>
-#import <CoreLocation/CoreLocation.h>
-#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
-#import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import "MyPopView.h"
 #import "MyPointAnnotation.h"
 #import "DetailViewController.h"
@@ -204,21 +198,22 @@
 //点击地图上原有的标注
 - (void)mapView:(BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi*)mapPoi{
      [self.keyWord resignFirstResponder];
+    WLLog(@"地图标注");
     //如果没有直接创建
-    if (animatedAnnotation==nil) {
-        animatedAnnotation = [[BMKPointAnnotation alloc]init];
-        animatedAnnotation.title = mapPoi.text;
-        animatedAnnotation.coordinate = mapPoi.pt;
-        [_mapView addAnnotation:animatedAnnotation];
-    }else{
-        //如果已有 移除后创建
-        [_mapView removeAnnotation:animatedAnnotation];
-        animatedAnnotation=nil;
-        animatedAnnotation = [[BMKPointAnnotation alloc]init];
-        animatedAnnotation.title = mapPoi.text;
-        animatedAnnotation.coordinate = mapPoi.pt;
-        [_mapView addAnnotation:animatedAnnotation];
-    }
+//    if (animatedAnnotation==nil) {
+//        animatedAnnotation = [[BMKPointAnnotation alloc]init];
+//        animatedAnnotation.title = mapPoi.text;
+//        animatedAnnotation.coordinate = mapPoi.pt;
+//        [_mapView addAnnotation:animatedAnnotation];
+//    }else{
+//        //如果已有 移除后创建
+//        [_mapView removeAnnotation:animatedAnnotation];
+//        animatedAnnotation=nil;
+//        animatedAnnotation = [[BMKPointAnnotation alloc]init];
+//        animatedAnnotation.title = mapPoi.text;
+//        animatedAnnotation.coordinate = mapPoi.pt;
+//        [_mapView addAnnotation:animatedAnnotation];
+//    }
 }
 
 //点击空白处 移除显示的标注
