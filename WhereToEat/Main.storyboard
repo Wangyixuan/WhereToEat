@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6nG-74-jgu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6nG-74-jgu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--搜索-->
         <scene sceneID="U1a-ku-gsE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LWf-Xz-CCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NewViewController" title="搜索" id="6kN-2p-5te" customClass="NewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HZ5-MS-1CM"/>
@@ -23,9 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="搜索" image="Button_search" id="pnd-eq-XJ1"/>
+                    <tabBarItem key="tabBarItem" title="搜索" image="Button_search" selectedImage="Button_search_sel" id="pnd-eq-XJ1"/>
                     <navigationItem key="navigationItem" id="EZQ-WL-VaU"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LWf-Xz-CCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="182" y="418"/>
         </scene>
@@ -236,7 +236,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="收藏" image="Button" id="JGU-rz-Ram"/>
+                    <tabBarItem key="tabBarItem" title="收藏" image="Button" selectedImage="Button_sel" id="JGU-rz-Ram"/>
                     <navigationItem key="navigationItem" id="51h-x9-zD0">
                         <barButtonItem key="backBarButtonItem" title="返回" id="jzR-fe-xJc"/>
                     </navigationItem>
@@ -355,6 +355,8 @@
     <resources>
         <image name="Button" width="45" height="35"/>
         <image name="Button_search" width="45" height="35"/>
+        <image name="Button_search_sel" width="45" height="35"/>
+        <image name="Button_sel" width="45" height="35"/>
         <image name="Button_set" width="45" height="35"/>
         <image name="Button_set_sel" width="45" height="35"/>
         <image name="QR" width="150" height="150"/>
