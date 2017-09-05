@@ -51,6 +51,12 @@
 		9B84AC141D4742340062D663 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AC131D4742340062D663 /* ShareView.m */; };
 		9B9F919C1CCB62BC009ACC37 /* firstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F919B1CCB62BC009ACC37 /* firstView.m */; };
 		9B9F919E1CCB62C6009ACC37 /* firstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F919D1CCB62C6009ACC37 /* firstView.xib */; };
+		9BBE684E1F5E465E0096A1E7 /* jpush-ios-3.0.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE684C1F5E465E0096A1E7 /* jpush-ios-3.0.6.a */; };
+		9BBE68501F5E47FB0096A1E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE684F1F5E47FB0096A1E7 /* CFNetwork.framework */; };
+		9BBE68521F5E48170096A1E7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE68511F5E48170096A1E7 /* CoreFoundation.framework */; };
+		9BBE68541F5E486C0096A1E7 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE68531F5E486C0096A1E7 /* UserNotifications.framework */; };
+		9BBE68561F5E48820096A1E7 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE68551F5E48820096A1E7 /* libresolv.tbd */; };
+		9BBE68581F5E52B10096A1E7 /* jcore-ios-1.1.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE68571F5E52B10096A1E7 /* jcore-ios-1.1.5.a */; };
 		9BC7F55E1ED4205B00F7058B /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7F55D1ED4205B00F7058B /* BaiduMapAPI_Base.framework */; };
 		9BC7F5601ED4206600F7058B /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7F55F1ED4206600F7058B /* BaiduMapAPI_Location.framework */; };
 		9BC7F5621ED4208400F7058B /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7F5611ED4208400F7058B /* BaiduMapAPI_Map.framework */; };
@@ -173,6 +179,14 @@
 		9B9F919A1CCB62BC009ACC37 /* firstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstView.h; sourceTree = "<group>"; };
 		9B9F919B1CCB62BC009ACC37 /* firstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstView.m; sourceTree = "<group>"; };
 		9B9F919D1CCB62C6009ACC37 /* firstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = firstView.xib; sourceTree = "<group>"; };
+		9BBE684A1F5E3FEA0096A1E7 /* WhereToEat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WhereToEat.entitlements; path = ../WhereToEat.entitlements; sourceTree = "<group>"; };
+		9BBE684C1F5E465E0096A1E7 /* jpush-ios-3.0.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.6.a"; sourceTree = "<group>"; };
+		9BBE684D1F5E465E0096A1E7 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		9BBE684F1F5E47FB0096A1E7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9BBE68511F5E48170096A1E7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		9BBE68531F5E486C0096A1E7 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		9BBE68551F5E48820096A1E7 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		9BBE68571F5E52B10096A1E7 /* jcore-ios-1.1.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jcore-ios-1.1.5.a"; path = "../../../../../jpush-ios-3.0.6-release/Lib/jcore-ios-1.1.5.a"; sourceTree = "<group>"; };
 		9BC7F55D1ED4205B00F7058B /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		9BC7F55F1ED4206600F7058B /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
 		9BC7F5611ED4208400F7058B /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
@@ -241,12 +255,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBE68561F5E48820096A1E7 /* libresolv.tbd in Frameworks */,
+				9BBE68541F5E486C0096A1E7 /* UserNotifications.framework in Frameworks */,
+				9BBE68521F5E48170096A1E7 /* CoreFoundation.framework in Frameworks */,
+				9BBE68501F5E47FB0096A1E7 /* CFNetwork.framework in Frameworks */,
 				9B84AC0F1D4701570062D663 /* libc++.tbd in Frameworks */,
 				9B84AC0D1D4701420062D663 /* libz.tbd in Frameworks */,
 				9B123A6D1CBD166100FCE823 /* CoreLocation.framework in Frameworks */,
 				9B123A6B1CBD165600FCE823 /* QuartzCore.framework in Frameworks */,
+				9BBE684E1F5E465E0096A1E7 /* jpush-ios-3.0.6.a in Frameworks */,
 				9BC7F5641ED4209C00F7058B /* BaiduMapAPI_Search.framework in Frameworks */,
 				9B123A691CBD164600FCE823 /* OpenGLES.framework in Frameworks */,
+				9BBE68581F5E52B10096A1E7 /* jcore-ios-1.1.5.a in Frameworks */,
 				9B123A671CBD163E00FCE823 /* SystemConfiguration.framework in Frameworks */,
 				9B123A651CBD163600FCE823 /* CoreGraphics.framework in Frameworks */,
 				9BC7F5691ED4214500F7058B /* libcrypto.a in Frameworks */,
@@ -376,6 +396,8 @@
 		9B123A221CBD151000FCE823 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9BBE684B1F5E45B00096A1E7 /* JPush */,
+				9BBE684A1F5E3FEA0096A1E7 /* WhereToEat.entitlements */,
 				9BE50EAE1E61661200BBF6EA /* SDWebImage */,
 				9B84AC041D46FFF40062D663 /* openSDK1.7.2 */,
 				9BC8808C1CC0C98B006341D4 /* Reachability */,
@@ -384,7 +406,6 @@
 				9B123A7D1CBE1DD300FCE823 /* SVProgressHUD */,
 				9B123A311CBD151000FCE823 /* sdk */,
 				9B123A6F1CBD170500FCE823 /* SphereView */,
-				9B123A6E1CBD167E00FCE823 /* selfLib */,
 				9B123A2D1CBD151000FCE823 /* AppDelegate.h */,
 				9B123A2E1CBD151000FCE823 /* AppDelegate.mm */,
 				9B123A2F1CBD151000FCE823 /* CommonMacro.h */,
@@ -422,33 +443,6 @@
 				9B84AC101D4742290062D663 /* ShareView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		9B123A6E1CBD167E00FCE823 /* selfLib */ = {
-			isa = PBXGroup;
-			children = (
-				9B84AC0E1D4701570062D663 /* libc++.tbd */,
-				9B84AC0C1D4701420062D663 /* libz.tbd */,
-				9B123A6C1CBD166100FCE823 /* CoreLocation.framework */,
-				9B123A6A1CBD165600FCE823 /* QuartzCore.framework */,
-				9B123A681CBD164600FCE823 /* OpenGLES.framework */,
-				9B123A661CBD163E00FCE823 /* SystemConfiguration.framework */,
-				9B123A641CBD163600FCE823 /* CoreGraphics.framework */,
-				9B123A621CBD162C00FCE823 /* Security.framework */,
-				9B123A601CBD162200FCE823 /* CoreTelephony.framework */,
-				9B123A5E1CBD161900FCE823 /* libsqlite3.0.tbd */,
-				9B123A5C1CBD160600FCE823 /* libstdc++.6.0.9.tbd */,
-				9B123A5A1CBD15F700FCE823 /* AdSupport.framework */,
-				9B123A581CBD15EF00FCE823 /* AudioToolbox.framework */,
-				9B123A561CBD15E100FCE823 /* AVFoundation.framework */,
-				9B123A541CBD15D200FCE823 /* CoreMedia.framework */,
-				9B123A501CBD15C200FCE823 /* EventKit.framework */,
-				9B123A511CBD15C200FCE823 /* EventKitUI.framework */,
-				9B123A4E1CBD15B000FCE823 /* MediaPlayer.framework */,
-				9B123A4C1CBD15A600FCE823 /* MessageUI.framework */,
-				9B123A4A1CBD159E00FCE823 /* StoreKit.framework */,
-			);
-			name = selfLib;
 			sourceTree = "<group>";
 		};
 		9B123A6F1CBD170500FCE823 /* SphereView */ = {
@@ -511,9 +505,43 @@
 			path = openSDK1.7.2;
 			sourceTree = "<group>";
 		};
+		9BBE684B1F5E45B00096A1E7 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				9BBE68571F5E52B10096A1E7 /* jcore-ios-1.1.5.a */,
+				9BBE684C1F5E465E0096A1E7 /* jpush-ios-3.0.6.a */,
+				9BBE684D1F5E465E0096A1E7 /* JPUSHService.h */,
+			);
+			path = JPush;
+			sourceTree = "<group>";
+		};
 		9BC7F5581ED41F8100F7058B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B84AC0E1D4701570062D663 /* libc++.tbd */,
+				9B84AC0C1D4701420062D663 /* libz.tbd */,
+				9B123A6C1CBD166100FCE823 /* CoreLocation.framework */,
+				9B123A6A1CBD165600FCE823 /* QuartzCore.framework */,
+				9B123A681CBD164600FCE823 /* OpenGLES.framework */,
+				9B123A661CBD163E00FCE823 /* SystemConfiguration.framework */,
+				9B123A641CBD163600FCE823 /* CoreGraphics.framework */,
+				9B123A621CBD162C00FCE823 /* Security.framework */,
+				9B123A601CBD162200FCE823 /* CoreTelephony.framework */,
+				9B123A5E1CBD161900FCE823 /* libsqlite3.0.tbd */,
+				9B123A5C1CBD160600FCE823 /* libstdc++.6.0.9.tbd */,
+				9B123A5A1CBD15F700FCE823 /* AdSupport.framework */,
+				9B123A581CBD15EF00FCE823 /* AudioToolbox.framework */,
+				9B123A561CBD15E100FCE823 /* AVFoundation.framework */,
+				9B123A541CBD15D200FCE823 /* CoreMedia.framework */,
+				9B123A501CBD15C200FCE823 /* EventKit.framework */,
+				9B123A511CBD15C200FCE823 /* EventKitUI.framework */,
+				9B123A4E1CBD15B000FCE823 /* MediaPlayer.framework */,
+				9B123A4C1CBD15A600FCE823 /* MessageUI.framework */,
+				9B123A4A1CBD159E00FCE823 /* StoreKit.framework */,
+				9BBE68551F5E48820096A1E7 /* libresolv.tbd */,
+				9BBE68531F5E486C0096A1E7 /* UserNotifications.framework */,
+				9BBE68511F5E48170096A1E7 /* CoreFoundation.framework */,
+				9BBE684F1F5E47FB0096A1E7 /* CFNetwork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -625,6 +653,9 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -777,7 +808,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "d84465ea-79cd-4118-ba7b-9e2a166b57a2";
+				PROVISIONING_PROFILE = "6c86a08d-9e32-43ea-b8b4-28f38d19d973";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -820,7 +851,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6700dacd-79fb-41b1-855a-f445e20fdf75";
+				PROVISIONING_PROFILE = "7526bbc3-0e11-415f-98b1-6927e8db3782";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -831,6 +862,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = WhereToEat/WhereToEat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lei Wang (7753633487)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lei Wang (7753633487)";
 				DEVELOPMENT_TEAM = D5PE98ZY97;
@@ -849,12 +881,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhereToEat/Other/openSDK1.7.2",
 					"$(PROJECT_DIR)/WhereToEat/Other/sdk",
+					"$(PROJECT_DIR)/WhereToEat/Other/JPush",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WLtech.WhereToEat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d84465ea-79cd-4118-ba7b-9e2a166b57a2";
-				PROVISIONING_PROFILE_SPECIFIER = WhereToEat_dev;
+				PROVISIONING_PROFILE = "6c86a08d-9e32-43ea-b8b4-28f38d19d973";
+				PROVISIONING_PROFILE_SPECIFIER = WhereToEat_dev_push;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/WhereToEat/Other/JPush\"";
 			};
 			name = Debug;
 		};
@@ -863,6 +897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = WhereToEat/WhereToEat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lei Wang (D5PE98ZY97)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lei Wang (D5PE98ZY97)";
 				DEVELOPMENT_TEAM = D5PE98ZY97;
@@ -881,12 +916,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhereToEat/Other/openSDK1.7.2",
 					"$(PROJECT_DIR)/WhereToEat/Other/sdk",
+					"$(PROJECT_DIR)/WhereToEat/Other/JPush",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WLtech.WhereToEat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6700dacd-79fb-41b1-855a-f445e20fdf75";
-				PROVISIONING_PROFILE_SPECIFIER = WhereToEat_dist;
+				PROVISIONING_PROFILE = "7526bbc3-0e11-415f-98b1-6927e8db3782";
+				PROVISIONING_PROFILE_SPECIFIER = WhereToEat_dist_push;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/WhereToEat/Other/JPush\"";
 			};
 			name = Release;
 		};
