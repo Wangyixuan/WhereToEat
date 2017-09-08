@@ -40,4 +40,13 @@
 
 #define WLViewController(StoryboardID) [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:StoryboardID];
 
+//StringFormat
+#define KKStringWithFormat(format, ...) [NSString stringWithFormat:format, __VA_ARGS__]
+#define KKUserDefaults [NSUserDefaults standardUserDefaults]
+//String bank
+#define KKStringIsBlank(string)  [NSString isBlank:string]
+#define KKStringIsNotBlank(string) [NSString isNotBlank:string]
+
+#define KKRegexNotBlack  @"^.+$"
+
 #endif /* CommonMacro_h */

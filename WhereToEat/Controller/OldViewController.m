@@ -202,7 +202,7 @@
 //选出随机结果
 -(void)randomBtnClick{
     WLLog(@"随机");
-    WLLog(@"%@",self.array);
+//    WLLog(@"%@",self.array);
     if (self.array.count>0) {
         int x = arc4random() % self.array.count;
         if (self.array.count>x) {

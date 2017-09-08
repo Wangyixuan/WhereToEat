@@ -11,5 +11,6 @@
 
 #import "NSDictionary+JsonDict.h"
 #import "NSObject+Convertor.h"
+#import "NSString+Valid.h"
 
 #endif /* CategoryHeader_h */

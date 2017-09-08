@@ -164,7 +164,7 @@
             // 设置可拖拽
             annotationView.draggable = NO;
             //点击是否显示泡泡
-            annotationView.canShowCallout = NO;
+            annotationView.canShowCallout = YES;
         }
          return annotationView;
     }else{
@@ -294,6 +294,7 @@
             MyPointAnnotation *item = [[MyPointAnnotation alloc]init];
             item.coordinate = poi.pt;
             item.uidString = poi.uid;
+            item.title = poi.name;
             [annotations addObject:item];
         }
         self.resultPage = poiResult.pageIndex;
