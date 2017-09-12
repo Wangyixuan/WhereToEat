@@ -11,7 +11,12 @@
 #import "LocalManager.h"
 
 @interface MyPopView ()
+//收藏按钮
+@property (weak, nonatomic) IBOutlet UIButton *favoriteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *oldFavoriteBtn;
 
+//店名
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 //地址
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
 //人均价格

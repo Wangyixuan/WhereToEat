@@ -41,7 +41,15 @@ BMKMapManager* _mapManager;
     [WXApi registerApp:@"wx6d3a408dd9b6d159" withDescription:@"哪儿吃"];
     // 极光推送
     [self JPushWithOptions:launchOptions];
-
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"first"]) {
+        NSString *uuid = [[NSUUID UUID] UUIDString];
+        [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid"];
+    }
+    //请求定位服务
+    _locationManager=[[BMKLocationService alloc]init];
+    _locationManager.delegate = self;
+    [_locationManager startUserLocationService];
+    
     return YES;
 }
 
@@ -79,8 +87,41 @@ BMKMapManager* _mapManager;
      */
     //    [BMKMapView willBackGround];//废弃方法（空实现）,逻辑由地图SDK控制
 }
+/**
+ *用户位置更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation;{
+    //    WLLog(@"位置更新");
+    CLLocationCoordinate2D coords = userLocation.location.coordinate;
+   
+    [_locationManager stopUserLocationService];
+    _locationManager.delegate = nil;
+    WLLog(@"位置%f,%f",coords.latitude,coords.longitude);
+}
 
-
+-(void)uploadUserLocationWithLat:(double)lat andLon:(double)lon{
+    NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
+  
+    
+    
+}
+/**
+ *定位失败后，会调用此函数
+ *@param error 错误号
+ */
+- (void)didFailToLocateUserWithError:(NSError *)error{
+    WLLog(@"location error %@",error);
+    switch ([error code]) {
+        case kCLErrorDenied:{
+            UIAlertView *alet = [[UIAlertView alloc] initWithTitle:@"当前定位服务不可用" message:@"请到“设置->隐私->定位服务”中开启定位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alet show];
+        }
+            break;
+        default:
+            break;
+    }
+}
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -144,11 +185,13 @@ BMKMapManager* _mapManager;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
         NSLog(@"iOS10 前台收到远程通知:%@", [self logDic:userInfo]);
-            
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
     }
     else {
         // 判断为本地通知
         NSLog(@"iOS10 前台收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
+
     }
     completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
 }
@@ -168,16 +211,26 @@ BMKMapManager* _mapManager;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
         NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
+
     }
     else {
         // 判断为本地通知
         NSLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
+
     }
     
     completionHandler();  // 系统要求执行这个方法
 }
 #endif
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
+
+}
+
 - (NSString *)logDic:(NSDictionary *)dic {
     if (![dic count]) {
         return nil;

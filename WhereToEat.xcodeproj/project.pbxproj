@@ -41,6 +41,9 @@
 		9B123A821CBE1DD300FCE823 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B123A801CBE1DD300FCE823 /* SVProgressHUD.m */; };
 		9B123A861CBE26AE00FCE823 /* WCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B123A851CBE26AE00FCE823 /* WCAlertView.m */; };
 		9B123A8B1CBE664F00FCE823 /* LocalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B123A8A1CBE664F00FCE823 /* LocalManager.m */; };
+		9B295C7E1F67787100666EBD /* PushMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C7D1F67787100666EBD /* PushMessageListViewController.m */; };
+		9B295C821F67794C00666EBD /* PushMesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C801F67794C00666EBD /* PushMesCell.m */; };
+		9B295C831F67794C00666EBD /* PushMesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C811F67794C00666EBD /* PushMesCell.xib */; };
 		9B41DF3E1CBF730B00D493FA /* LocationChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41DF3D1CBF730B00D493FA /* LocationChange.m */; };
 		9B44A5EB1F5F9A0000C32839 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E61F5F9A0000C32839 /* BaiduMapAPI_Base.framework */; };
 		9B44A5EC1F5F9A0000C32839 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E71F5F9A0000C32839 /* BaiduMapAPI_Location.framework */; };
@@ -169,6 +172,12 @@
 		9B123A851CBE26AE00FCE823 /* WCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAlertView.m; sourceTree = "<group>"; };
 		9B123A891CBE664F00FCE823 /* LocalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalManager.h; sourceTree = "<group>"; };
 		9B123A8A1CBE664F00FCE823 /* LocalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalManager.m; sourceTree = "<group>"; };
+		9B295C7C1F67787100666EBD /* PushMessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessageListViewController.h; sourceTree = "<group>"; };
+		9B295C7D1F67787100666EBD /* PushMessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessageListViewController.m; sourceTree = "<group>"; };
+		9B295C7F1F67794C00666EBD /* PushMesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMesCell.h; sourceTree = "<group>"; };
+		9B295C801F67794C00666EBD /* PushMesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMesCell.m; sourceTree = "<group>"; };
+		9B295C811F67794C00666EBD /* PushMesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushMesCell.xib; sourceTree = "<group>"; };
+		9B295C871F67C89400666EBD /* ServiceInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceInterface.h; sourceTree = "<group>"; };
 		9B41DF3C1CBF730B00D493FA /* LocationChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationChange.h; sourceTree = "<group>"; };
 		9B41DF3D1CBF730B00D493FA /* LocationChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationChange.m; sourceTree = "<group>"; };
 		9B41DF3F1CBF7A9500D493FA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -399,6 +408,8 @@
 				9BC880911CC0CB8D006341D4 /* GuideViewController.m */,
 				9B123A161CBD14E700FCE823 /* RootTabbarViewController.h */,
 				9B123A171CBD14E700FCE823 /* RootTabbarViewController.m */,
+				9B295C7C1F67787100666EBD /* PushMessageListViewController.h */,
+				9B295C7D1F67787100666EBD /* PushMessageListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,6 +441,7 @@
 				9B123A2E1CBD151000FCE823 /* AppDelegate.mm */,
 				9B123A2F1CBD151000FCE823 /* CommonMacro.h */,
 				9B123A301CBD151000FCE823 /* PrefixHeader.pch */,
+				9B295C871F67C89400666EBD /* ServiceInterface.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -641,6 +653,9 @@
 		9BE50EA51E615CE300BBF6EA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				9B295C7F1F67794C00666EBD /* PushMesCell.h */,
+				9B295C801F67794C00666EBD /* PushMesCell.m */,
+				9B295C811F67794C00666EBD /* PushMesCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -768,6 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9F919E1CCB62C6009ACC37 /* firstView.xib in Resources */,
+				9B295C831F67794C00666EBD /* PushMesCell.xib in Resources */,
 				9BC7F56C1ED4294700F7058B /* mapapi.bundle in Resources */,
 				9B84AC0B1D46FFF40062D663 /* README.txt in Resources */,
 				9B1239EE1CBD14A200FCE823 /* LaunchScreen.storyboard in Resources */,
@@ -803,6 +819,7 @@
 				9B9F919C1CCB62BC009ACC37 /* firstView.m in Sources */,
 				9BE50ED41E61661200BBF6EA /* SDWebImageDecoder.m in Sources */,
 				9B123A861CBE26AE00FCE823 /* WCAlertView.m in Sources */,
+				9B295C821F67794C00666EBD /* PushMesCell.m in Sources */,
 				9BE50EDE1E61661200BBF6EA /* UIImageView+WebCache.m in Sources */,
 				9BC880981CC0E2F1006341D4 /* SetTableViewController.m in Sources */,
 				9B123A7C1CBDEC5000FCE823 /* DetailViewController.m in Sources */,
@@ -813,6 +830,7 @@
 				9B41DF3E1CBF730B00D493FA /* LocationChange.m in Sources */,
 				9B84AC141D4742340062D663 /* ShareView.m in Sources */,
 				9BCB09721F60F5630016AE68 /* FMResultSet.m in Sources */,
+				9B295C7E1F67787100666EBD /* PushMessageListViewController.m in Sources */,
 				9BE50EDD1E61661200BBF6EA /* UIImageView+HighlightedWebCache.m in Sources */,
 				9B123A181CBD14E700FCE823 /* NewViewController.m in Sources */,
 				9B123A481CBD151000FCE823 /* MyPopView.m in Sources */,

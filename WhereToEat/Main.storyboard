@@ -224,9 +224,26 @@
             <point key="canvasLocation" x="182" y="1157"/>
         </scene>
         <!--收藏-->
+        <scene sceneID="JcJ-jO-TsN">
+            <objects>
+                <navigationController id="vae-DK-PjA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="收藏" image="Button" selectedImage="Button_sel" id="S8d-IY-agA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qvy-DK-cj2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PNg-6x-T47" kind="relationship" relationship="rootViewController" id="R9p-xT-7x4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UBh-Wo-MgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-89" y="-278"/>
+        </scene>
+        <!--收藏-->
         <scene sceneID="eIb-yz-MjZ">
             <objects>
-                <viewController storyboardIdentifier="OldViewController" id="PNg-6x-T47" customClass="OldViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OldViewController" id="PNg-6x-T47" userLabel="收藏" customClass="OldViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pmw-pe-3av"/>
                         <viewControllerLayoutGuide type="bottom" id="gUE-9b-eLD"/>
@@ -236,14 +253,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="收藏" image="Button" selectedImage="Button_sel" id="JGU-rz-Ram"/>
-                    <navigationItem key="navigationItem" id="51h-x9-zD0">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="jzR-fe-xJc"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="RXg-kU-Agw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOf-uV-UmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182" y="-278"/>
+            <point key="canvasLocation" x="602" y="-278"/>
+        </scene>
+        <!--推送消息-->
+        <scene sceneID="mvA-zH-w8m">
+            <objects>
+                <viewController storyboardIdentifier="PushMessageListViewController" hidesBottomBarWhenPushed="YES" id="S5U-cR-cyJ" userLabel="推送消息" customClass="PushMessageListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9PC-xg-MVE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fer-Gg-t8E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vCS-H4-hQN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2Gb-t3-zdY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="S5U-cR-cyJ" id="Zpy-bA-0cm"/>
+                                    <outlet property="delegate" destination="S5U-cR-cyJ" id="pMk-nr-HUf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Gb-t3-zdY" firstAttribute="top" secondItem="vCS-H4-hQN" secondAttribute="top" id="7XG-Nl-cT9"/>
+                            <constraint firstAttribute="trailing" secondItem="2Gb-t3-zdY" secondAttribute="trailing" id="YRl-Lb-3QV"/>
+                            <constraint firstItem="Fer-Gg-t8E" firstAttribute="top" secondItem="2Gb-t3-zdY" secondAttribute="bottom" id="bnp-ZJ-alj"/>
+                            <constraint firstItem="2Gb-t3-zdY" firstAttribute="leading" secondItem="vCS-H4-hQN" secondAttribute="leading" id="umr-EK-TFq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="推送餐厅" id="577-4J-dFu"/>
+                    <connections>
+                        <outlet property="tableView" destination="2Gb-t3-zdY" id="aKN-bX-7Db"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exJ-KE-X2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="-278"/>
         </scene>
         <!--新手指导-->
         <scene sceneID="ddw-4C-yck">
@@ -324,7 +376,7 @@
                         <color key="tintColor" red="1" green="0.50196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PNg-6x-T47" kind="relationship" relationship="viewControllers" id="GJI-Yz-2Xo"/>
+                        <segue destination="vae-DK-PjA" kind="relationship" relationship="viewControllers" id="sgJ-fA-NGh"/>
                         <segue destination="6kN-2p-5te" kind="relationship" relationship="viewControllers" id="cZs-Hr-kGu"/>
                         <segue destination="AyP-Zy-sJc" kind="relationship" relationship="viewControllers" id="Y1F-D7-mam"/>
                     </connections>

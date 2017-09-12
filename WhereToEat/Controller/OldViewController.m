@@ -11,7 +11,7 @@
 #import "XLSphereView.h"
 #import "DetailViewController.h"
 #import "NewViewController.h"
-
+#import "PushMessageListViewController.h"
 
 @interface OldViewController ()<BMKPoiSearchDelegate>//GADInterstitialDelegate,
 //@property (strong, nonatomic) GADBannerView *bannerView;
@@ -24,6 +24,7 @@
 @property (nonatomic, strong) BMKPoiDetailSearchOption *detailSearch;
 @property (nonatomic, strong) UIButton *annBtn;
 @property (nonatomic, strong) UIButton *randomBtn;
+@property (nonatomic, strong) UIButton *pushMesBtn;
 @end
 
 @implementation OldViewController
@@ -42,12 +43,15 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createBallView) name:@"updatePlist" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removePopView) name:@"removePopView" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(newPushMessage) name:@"newPushMessage" object:nil];
+
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.search.delegate = self;
+    self.navigationController.navigationBarHidden = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -95,7 +99,12 @@
     [randomBtn addTarget:self action:@selector(randomBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:randomBtn];
     self.randomBtn = randomBtn;
-
+    
+    UIButton *pushMesBtn = [[UIButton alloc]initWithFrame:CGRectMake(WLScreenW-WLScreenW*0.15, 20, WLScreenW*0.15, WLScreenW*0.1)];
+    [pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
+    [pushMesBtn addTarget:self action:@selector(pushMessageList) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:pushMesBtn];
+    self.pushMesBtn = pushMesBtn;
 }
 
 
@@ -242,5 +251,14 @@
 -(void)removePopView{
     [self.popView removeFromSuperview];
 }
+//跳转到推送消息列表
+-(void)pushMessageList{
+    [_pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
+    PushMessageListViewController *pushList = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PushMessageListViewController"];
+    [self.navigationController pushViewController:pushList animated:YES];
+}
 
+-(void)newPushMessage{
+    [_pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes_new"] forState:UIControlStateNormal];
+}
 @end

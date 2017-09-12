@@ -14,9 +14,10 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,BMKGeneralDelegate,WXApiDelegate,JPUSHRegisterDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,BMKGeneralDelegate,WXApiDelegate,JPUSHRegisterDelegate,BMKLocationServiceDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+//定位服务
+@property(nonatomic,strong) BMKLocationService *locationManager;
 @end
 
