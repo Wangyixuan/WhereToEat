@@ -18,6 +18,8 @@
 @property (nonatomic, copy) void(^detailBlock)(NSString *detailURL);
 //导航
 @property (nonatomic, copy) void(^poisionBlock)(CLLocationCoordinate2D coord,NSString *name);
+//上传收藏
+@property (nonatomic, copy) void (^uploadBlock)(BMKPoiDetailResult *detailResult);
 //按钮view
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 

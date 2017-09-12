@@ -487,6 +487,9 @@
         [weakself naviClickWithCrood:coord name:name];
         WLLog(@"导航");
     };
+    popView.uploadBlock = ^(BMKPoiDetailResult *detailResult) {
+        WLLog(@"上传");
+    };
 }
 
 

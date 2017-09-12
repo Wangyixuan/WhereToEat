@@ -49,7 +49,6 @@ BMKMapManager* _mapManager;
     _locationManager=[[BMKLocationService alloc]init];
     _locationManager.delegate = self;
     [_locationManager startUserLocationService];
-    
     return YES;
 }
 
@@ -94,17 +93,41 @@ BMKMapManager* _mapManager;
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation;{
     //    WLLog(@"位置更新");
     CLLocationCoordinate2D coords = userLocation.location.coordinate;
-   
     [_locationManager stopUserLocationService];
     _locationManager.delegate = nil;
     WLLog(@"位置%f,%f",coords.latitude,coords.longitude);
+    [self uploadUserLocationWithLat:coords.latitude andLon:coords.longitude];
 }
 
 -(void)uploadUserLocationWithLat:(double)lat andLon:(double)lon{
     NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
-  
+    //确定请求路径
+    NSString *urlStr = [NSString stringWithFormat:@"http://192.168.40.6:9999/jjpush/appGetDataInitCoordinateServlet?lat=%f&lon=%f&uuid=%@",lat,lon,uuid];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    //创建 NSURLSession 对象
+    NSURLSession *session = [NSURLSession sharedSession];
     
-    
+    /**
+     根据对象创建 Task 请求
+     
+     url  方法内部会自动将 URL 包装成一个请求对象（默认是 GET 请求）
+     completionHandler  完成之后的回调（成功或失败）
+     
+     param data     返回的数据（响应体）
+     param response 响应头
+     param error    错误信息
+     */
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:
+                                      ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                          
+                                          //解析服务器返回的数据
+                                          NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                          //默认在子线程中解析数据
+//                                          NSLog(@"%@", [NSThread currentThread]);
+                                          NSLog(@"error %@",error);
+                                      }];
+    //发送请求（执行Task）
+    [dataTask resume];
 }
 /**
  *定位失败后，会调用此函数
@@ -125,6 +148,8 @@ BMKMapManager* _mapManager;
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    _locationManager.delegate = self;
+    [_locationManager startUserLocationService];
 }
 
 

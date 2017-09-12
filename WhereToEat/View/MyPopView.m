@@ -123,6 +123,9 @@
    //如果选中 说明已收藏 存入pilst
     if (sender.selected==YES) {
         [KKSharedLocalManager setKKValue:self.uid forKey:self.titleLabel.text];
+        if (self.uploadBlock) {
+            self.uploadBlock(self.detailResult);
+        }
     }
     //取消选中 不收藏 从plist删除
     else{
