@@ -469,7 +469,7 @@
 -(void)createPopViewWith:(BMKPoiDetailResult*)detailResult{
     
     MyPopView *popView = [MyPopView loadMyPopView];
-    popView.frame = CGRectMake(0, self.view.bounds.size.height-126, self.view.bounds.size.width, 126);
+    popView.frame = CGRectMake(0, self.view.bounds.size.height-150, self.view.bounds.size.width, 150);
     popView.bottomView.hidden = YES;
     popView.detailResult = detailResult;
     [self.view addSubview:popView];

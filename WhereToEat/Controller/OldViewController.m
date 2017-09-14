@@ -80,12 +80,11 @@
 #pragma mark - selector
 -(void)createSubViews{
    
-    UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake((WLScreenW*0.5- BtnW)*0.5,self.sphereView.frame.origin.y+self.sphereView.frame.size.height+self.view.frame.size.width*0.1,BtnW,BtnH)];
+    UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake((WLScreenW*0.5- BtnW)*0.5,self.sphereView.frame.origin.y+self.sphereView.frame.size.height+self.view.frame.size.width*0.05,BtnW,BtnH)];
     [addBtn setTitle:@"添加" forState:UIControlStateNormal];
     [addBtn setTitleColor:appOrange forState:UIControlStateNormal];
     [addBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_bg"] forState:UIControlStateNormal];
-    [addBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_sel_bg"] forState:UIControlStateHighlighted];
-    
+    [addBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_sel_bg"] forState:UIControlStateHighlighted];    
     [addBtn addTarget:self action:@selector(goSearch) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addBtn];
     self.annBtn = addBtn;
@@ -95,7 +94,6 @@
     [randomBtn setTitleColor:appOrange forState:UIControlStateNormal];
     [randomBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_bg"] forState:UIControlStateNormal];
     [randomBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_sel_bg"] forState:UIControlStateHighlighted];
-    
     [randomBtn addTarget:self action:@selector(randomBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:randomBtn];
     self.randomBtn = randomBtn;
@@ -227,14 +225,14 @@
     [self.popView removeFromSuperview];
     
     MyPopView *popView = [MyPopView loadMyPopView];
-    popView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 126);
+    popView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 150);
     popView.detailResult = poiDetailResult;
     popView.bottomView.hidden = NO;
     [self.view addSubview:popView];
     self.popView = popView;
     
     [UIView animateWithDuration:0.5 animations:^{
-        popView.frame = CGRectMake(0, self.view.bounds.size.height-126, self.view.bounds.size.width, 126);
+        popView.frame = CGRectMake(0, self.view.bounds.size.height-150, self.view.bounds.size.width, 150);
    }];
 
     WLWEAKSELF

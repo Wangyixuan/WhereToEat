@@ -102,7 +102,7 @@ BMKMapManager* _mapManager;
 -(void)uploadUserLocationWithLat:(double)lat andLon:(double)lon{
     NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
     //确定请求路径
-    NSString *urlStr = [NSString stringWithFormat:@"http://192.168.40.6:9999/jjpush/appGetDataInitCoordinateServlet?lat=%f&lon=%f&uuid=%@",lat,lon,uuid];
+    NSString *urlStr = [NSString stringWithFormat:@"%@?lat=%f&lon=%f&uuid=%@",UpLoadLocationServerInterface,lat,lon,uuid];
     NSURL *url = [NSURL URLWithString:urlStr];
     //创建 NSURLSession 对象
     NSURLSession *session = [NSURLSession sharedSession];

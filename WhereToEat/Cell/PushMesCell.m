@@ -135,7 +135,7 @@
     }
     //更新球形标签
     [[NSNotificationCenter defaultCenter] postNotificationName:@"updatePlist" object:nil];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"removePopView" object:nil];
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"removePopView" object:nil];
     WLLog(@"收藏");
 }
 

@@ -44,6 +44,7 @@
 		9B295C7E1F67787100666EBD /* PushMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C7D1F67787100666EBD /* PushMessageListViewController.m */; };
 		9B295C821F67794C00666EBD /* PushMesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C801F67794C00666EBD /* PushMesCell.m */; };
 		9B295C831F67794C00666EBD /* PushMesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C811F67794C00666EBD /* PushMesCell.xib */; };
+		9B295C8D1F691E7400666EBD /* NetWorkingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C8C1F691E7400666EBD /* NetWorkingUtils.m */; };
 		9B41DF3E1CBF730B00D493FA /* LocationChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41DF3D1CBF730B00D493FA /* LocationChange.m */; };
 		9B44A5EB1F5F9A0000C32839 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E61F5F9A0000C32839 /* BaiduMapAPI_Base.framework */; };
 		9B44A5EC1F5F9A0000C32839 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E71F5F9A0000C32839 /* BaiduMapAPI_Location.framework */; };
@@ -178,6 +179,8 @@
 		9B295C801F67794C00666EBD /* PushMesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMesCell.m; sourceTree = "<group>"; };
 		9B295C811F67794C00666EBD /* PushMesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushMesCell.xib; sourceTree = "<group>"; };
 		9B295C871F67C89400666EBD /* ServiceInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceInterface.h; sourceTree = "<group>"; };
+		9B295C8B1F691E7400666EBD /* NetWorkingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingUtils.h; sourceTree = "<group>"; };
+		9B295C8C1F691E7400666EBD /* NetWorkingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingUtils.m; sourceTree = "<group>"; };
 		9B41DF3C1CBF730B00D493FA /* LocationChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationChange.h; sourceTree = "<group>"; };
 		9B41DF3D1CBF730B00D493FA /* LocationChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationChange.m; sourceTree = "<group>"; };
 		9B41DF3F1CBF7A9500D493FA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -350,6 +353,7 @@
 		9B1239DD1CBD14A100FCE823 /* WhereToEat */ = {
 			isa = PBXGroup;
 			children = (
+				9B295C8A1F691BCC00666EBD /* Utils */,
 				9BE50EE01E61682A00BBF6EA /* Category */,
 				9BE50EA51E615CE300BBF6EA /* Cell */,
 				9B123A881CBE662F00FCE823 /* Manager */,
@@ -514,6 +518,15 @@
 				9B123A8A1CBE664F00FCE823 /* LocalManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		9B295C8A1F691BCC00666EBD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B295C8B1F691E7400666EBD /* NetWorkingUtils.h */,
+				9B295C8C1F691E7400666EBD /* NetWorkingUtils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9B41DF3B1CBF730B00D493FA /* LocationChange */ = {
@@ -824,6 +837,7 @@
 				9BC880981CC0E2F1006341D4 /* SetTableViewController.m in Sources */,
 				9B123A7C1CBDEC5000FCE823 /* DetailViewController.m in Sources */,
 				9BCB096C1F60F5630016AE68 /* FMTokenizers.m in Sources */,
+				9B295C8D1F691E7400666EBD /* NetWorkingUtils.m in Sources */,
 				9BE50ED11E61661200BBF6EA /* NSData+ImageContentType.m in Sources */,
 				9BE50ED51E61661200BBF6EA /* SDWebImageDownloader.m in Sources */,
 				9BCB09531F60F4F20016AE68 /* KKBaseDao.m in Sources */,
@@ -968,7 +982,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = WhereToEat/WhereToEat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lei Wang (7753633487)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lei Wang (7753633487)";
@@ -1003,7 +1016,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = WhereToEat/WhereToEat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lei Wang (D5PE98ZY97)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lei Wang (D5PE98ZY97)";

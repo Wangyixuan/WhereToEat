@@ -9,12 +9,18 @@
 #ifndef ServiceInterface_h
 #define ServiceInterface_h
 
-#define KKServerDomain @"http://192.168.40.6:9999"
+#define ServerDomain @"http://192.168.40.6:9999"
+//#define ServerDomain @"https://www.zhangxiaoshuai.cn"
+//#define ServerDomain @"https://139.196.143.123"
 
 // Application
 #define App @"jjpsuh"
 
+#define UpLoadLocationServerInterface KKStringWithFormat(@"%@/%@/appGetDataInitCoordinateServlet",ServerDomain,App)
+#define UpLoadFavoriteServerInterface KKStringWithFormat(@"%@/%@/",ServerDomain,App)
+#define PushListServerInterface KKStringWithFormat(@"%@/%@/",ServerDomain,App)
 
 
 
 #endif /* ServiceInterface_h */
+ 
