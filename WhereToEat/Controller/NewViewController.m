@@ -489,9 +489,35 @@
     };
     popView.uploadBlock = ^(BMKPoiDetailResult *detailResult) {
         WLLog(@"上传");
+        [weakself uploadFavorite:detailResult];
     };
 }
 
+//上传收藏
+-(void)uploadFavorite:(BMKPoiDetailResult*)detailResult{
+    NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
+    //确定请求路径
+    NSURL *url = [NSURL URLWithString:UpLoadFavoriteServerInterface];
+    //创建可变请求对象
+    NSMutableURLRequest *requestM = [NSMutableURLRequest requestWithURL:url];
+    //修改请求方法
+    requestM.HTTPMethod = @"POST";
+    //设置请求体
+    requestM.HTTPBody = [[NSString stringWithFormat:@"id=%@&lat=%f&lon=%f&url=%@&tele=%@&name=%@&price=%f&address=%@&uuid=%@",detailResult.uid,detailResult.pt.latitude,detailResult.pt.longitude,detailResult.detailUrl,detailResult.phone,detailResult.name,detailResult.price,detailResult.address,uuid] dataUsingEncoding:NSUTF8StringEncoding];
+    //创建会话对象
+    NSURLSession *session = [NSURLSession sharedSession];
+    //创建请求 Task
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:requestM completionHandler:
+                                      ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                          
+                                          //解析返回的数据
+                                          WLLog(@"UpLoadFavorite %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                          WLLog(@"error %@",error);
+                                      }];
+    //发送请求
+    [dataTask resume];
+    
+}
 
 //导航
 -(void)naviClickWithCrood:(CLLocationCoordinate2D)coord name:(NSString*)name{

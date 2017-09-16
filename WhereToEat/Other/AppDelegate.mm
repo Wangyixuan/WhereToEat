@@ -121,10 +121,8 @@ BMKMapManager* _mapManager;
                                       ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                           
                                           //解析服务器返回的数据
-                                          NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                                          //默认在子线程中解析数据
-//                                          NSLog(@"%@", [NSThread currentThread]);
-                                          NSLog(@"error %@",error);
+                                          WLLog(@"uploadLocation%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                          WLLog(@"error %@",error);
                                       }];
     //发送请求（执行Task）
     [dataTask resume];
@@ -148,6 +146,7 @@ BMKMapManager* _mapManager;
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
     _locationManager.delegate = self;
     [_locationManager startUserLocationService];
 }
@@ -206,15 +205,15 @@ BMKMapManager* _mapManager;
     UNNotificationSound *sound = content.sound;  // 推送消息的声音
     NSString *subtitle = content.subtitle;  // 推送消息的副标题
     NSString *title = content.title;  // 推送消息的标题
-    
+    [JPUSHService resetBadge];
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
-        NSLog(@"iOS10 前台收到远程通知:%@", [self logDic:userInfo]);
+        WLLog(@"iOS10 前台收到远程通知:%@", [self logDic:userInfo]);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
     }
     else {
         // 判断为本地通知
-        NSLog(@"iOS10 前台收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
+        WLLog(@"iOS10 前台收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
 
     }
@@ -232,16 +231,16 @@ BMKMapManager* _mapManager;
     UNNotificationSound *sound = content.sound;  // 推送消息的声音
     NSString *subtitle = content.subtitle;  // 推送消息的副标题
     NSString *title = content.title;  // 推送消息的标题
-    
+     [JPUSHService resetBadge];
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
-        NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
+        WLLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
 
     }
     else {
         // 判断为本地通知
-        NSLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
+        WLLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newPushMessage" object:nil userInfo:nil];
 
     }

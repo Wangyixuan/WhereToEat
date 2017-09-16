@@ -14,10 +14,10 @@
 //#define ServerDomain @"https://139.196.143.123"
 
 // Application
-#define App @"jjpsuh"
+#define App @"jjpush"
 
 #define UpLoadLocationServerInterface KKStringWithFormat(@"%@/%@/appGetDataInitCoordinateServlet",ServerDomain,App)
-#define UpLoadFavoriteServerInterface KKStringWithFormat(@"%@/%@/",ServerDomain,App)
+#define UpLoadFavoriteServerInterface KKStringWithFormat(@"%@/%@/appGetDataCollectGymServlet",ServerDomain,App)
 #define PushListServerInterface KKStringWithFormat(@"%@/%@/",ServerDomain,App)
 
 

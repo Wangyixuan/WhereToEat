@@ -68,10 +68,10 @@ static NetWorkingUtils *instance;
                                           
                                           
                                           //解析服务器返回的数据
-                                          NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                          WLLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                                           //默认在子线程中解析数据
                                           //                                          NSLog(@"%@", [NSThread currentThread]);
-                                          NSLog(@"error %@",error);
+                                          WLLog(@"error %@",error);
                                       }];
     //发送请求（执行Task）
     [dataTask resume];
