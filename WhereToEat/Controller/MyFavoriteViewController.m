@@ -1,19 +1,19 @@
 //
-//  OldViewController.m
-//  Where to eat
+//  MyFavoriteViewController.m
+//  WhereToEat
 //
-//  Created by 王磊 on 16/3/19.
-//  Copyright © 2016年 WLtech. All rights reserved.
+//  Created by 王磊 on 2017/9/19.
+//  Copyright © 2017年 WLtech. All rights reserved.
 //
 
-#import "OldViewController.h"
-
+#import "MyFavoriteViewController.h"
 #import "XLSphereView.h"
 #import "DetailViewController.h"
 #import "NewViewController.h"
 #import "PushMessageListViewController.h"
+#import "MyFavoriteView.h"
 
-@interface OldViewController ()<BMKPoiSearchDelegate>//GADInterstitialDelegate,
+@interface MyFavoriteViewController ()<BMKPoiSearchDelegate>//GADInterstitialDelegate,
 //@property (strong, nonatomic) GADBannerView *bannerView;
 @property (nonatomic, strong) UIButton *showADBtn;
 //@property (nonatomic, strong) GADInterstitial *interstitial;
@@ -25,9 +25,11 @@
 @property (nonatomic, strong) UIButton *annBtn;
 @property (nonatomic, strong) UIButton *randomBtn;
 @property (nonatomic, strong) UIButton *pushMesBtn;
+
 @end
 
-@implementation OldViewController
+@implementation MyFavoriteViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,15 +38,36 @@
     //创建球形标签
     [self createBallView];
     //创建其他子控件
-    [self createSubViews];
+//    [self createSubViews];
     //POI搜索
     self.search = [[BMKPoiSearch alloc]init];
     self.detailSearch = [[BMKPoiDetailSearchOption alloc]init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createBallView) name:@"updatePlist" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removePopView) name:@"removePopView" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(newPushMessage) name:@"newPushMessage" object:nil];
-
+    
+    UIButton *pushMesBtn = [[UIButton alloc]initWithFrame:CGRectMake(WLScreenW-WLScreenW*0.15, 20, WLScreenW*0.15, WLScreenW*0.1)];
+    [pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
+    [pushMesBtn addTarget:self action:@selector(pushMessageList) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:pushMesBtn];
+    self.pushMesBtn = pushMesBtn;
+    
+//    MyPopView *popView = [MyPopView loadMyPopView];
+//    popView.frame = CGRectMake(0, self.sphereView.frame.origin.y+self.sphereView.frame.size.height+self.view.frame.size.width*0.05, self.view.bounds.size.width, 150);
+//    [self.view addSubview:popView];
+//    self.popView = popView;
+//    WLWEAKSELF
+//    self.popView.detailBlock = ^(NSString *detailURL){
+//        WLLog(@"详情");
+//        DetailViewController *detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+//        detailVC.detailURL = detailURL;
+//        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:detailVC];
+//        [weakself presentViewController:navController animated:YES completion:nil];
+//    };
+    
+    MyFavoriteView *favView = [MyFavoriteView loadMyFavoriteView];
+    favView.frame = CGRectMake(0, self.view.frame.size.height-WLScreenW*(246/320.0),WLScreenW, WLScreenW*(246/320.0));
+    [self.view addSubview:favView];
     
 }
 
@@ -78,38 +101,11 @@
 }
 
 #pragma mark - selector
--(void)createSubViews{
-   
-    UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake((WLScreenW*0.5- BtnW)*0.5,self.sphereView.frame.origin.y+self.sphereView.frame.size.height+self.view.frame.size.width*0.05,BtnW,BtnH)];
-    [addBtn setTitle:@"添加" forState:UIControlStateNormal];
-    [addBtn setTitleColor:appOrange forState:UIControlStateNormal];
-    [addBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_bg"] forState:UIControlStateNormal];
-    [addBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_sel_bg"] forState:UIControlStateHighlighted];    
-    [addBtn addTarget:self action:@selector(goSearch) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:addBtn];
-    self.annBtn = addBtn;
-    
-    UIButton *randomBtn = [[UIButton alloc]initWithFrame:CGRectMake(WLScreenW*0.5+(WLScreenW*0.5-BtnW)*0.5,self.annBtn.frame.origin.y,BtnW,BtnH)];
-    [randomBtn setTitle:@"换一家" forState:UIControlStateNormal];
-    [randomBtn setTitleColor:appOrange forState:UIControlStateNormal];
-    [randomBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_bg"] forState:UIControlStateNormal];
-    [randomBtn setBackgroundImage:[UIImage imageNamed:@"p1_Button_sel_bg"] forState:UIControlStateHighlighted];
-    [randomBtn addTarget:self action:@selector(randomBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:randomBtn];
-    self.randomBtn = randomBtn;
-    
-    UIButton *pushMesBtn = [[UIButton alloc]initWithFrame:CGRectMake(WLScreenW-WLScreenW*0.15, 20, WLScreenW*0.15, WLScreenW*0.1)];
-    [pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
-    [pushMesBtn addTarget:self action:@selector(pushMessageList) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:pushMesBtn];
-    self.pushMesBtn = pushMesBtn;
-}
-
 
 -(void)createBallView{
     [self.sphereView removeFromSuperview];
     _sphereView = [[XLSphereView alloc] initWithFrame:CGRectMake((WLScreenW-sphereViewW)*0.5, WLScreenW*0.15, sphereViewW, sphereViewH)];
-//    _sphereView.backgroundColor = [UIColor blueColor];
+    _sphereView.backgroundColor = [UIColor blueColor];
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
     //获取所以收藏的店面
     NSArray *keyArray = [KKSharedLocalManager.plistDataDic allKeys];
@@ -200,16 +196,10 @@
     }];
 }
 
-//去添加按钮方法
--(void)goSearch{
-    //跳转到搜索页面
-    self.tabBarController.selectedIndex=1;
-}
-
 //选出随机结果
 -(void)randomBtnClick{
     WLLog(@"随机");
-//    WLLog(@"%@",self.array);
+    //    WLLog(@"%@",self.array);
     if (self.array.count>0) {
         int x = arc4random() % self.array.count;
         if (self.array.count>x) {
@@ -222,32 +212,21 @@
 }
 //根据搜索结果 弹出相应popView
 -(void)createPopViewWithDetailResult:(BMKPoiDetailResult*)poiDetailResult{
-    [self.popView removeFromSuperview];
     
-    MyPopView *popView = [MyPopView loadMyPopView];
-    popView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 150);
-    popView.detailResult = poiDetailResult;
-    [self.view addSubview:popView];
-    self.popView = popView;
+//    MyPopView *popView = [MyPopView loadMyPopView];
+//    popView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 150);
+     self.popView.detailResult = poiDetailResult;
+//    popView.bottomView.hidden = NO;
+//    [self.view addSubview:popView];
+//    self.popView = popView;
+//
+//    [UIView animateWithDuration:0.5 animations:^{
+//        popView.frame = CGRectMake(0, self.view.bounds.size.height-150, self.view.bounds.size.width, 150);
+//    }];
     
-    [UIView animateWithDuration:0.5 animations:^{
-        popView.frame = CGRectMake(0, self.view.bounds.size.height-150, self.view.bounds.size.width, 150);
-   }];
 
-    WLWEAKSELF
-    popView.detailBlock = ^(NSString *detailURL){
-        WLLog(@"详情");
-        DetailViewController *detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
-        detailVC.detailURL = detailURL;
-        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:detailVC];
-        [weakself presentViewController:navController animated:YES completion:nil];
-        
-    };
 }
 
--(void)removePopView{
-    [self.popView removeFromSuperview];
-}
 //跳转到推送消息列表
 -(void)pushMessageList{
     [_pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
@@ -258,4 +237,5 @@
 -(void)newPushMessage{
     [_pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes_new"] forState:UIControlStateNormal];
 }
+
 @end

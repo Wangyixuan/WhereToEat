@@ -51,6 +51,9 @@
 		9B44A5ED1F5F9A0000C32839 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E81F5F9A0000C32839 /* BaiduMapAPI_Map.framework */; };
 		9B44A5EE1F5F9A0000C32839 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E91F5F9A0000C32839 /* BaiduMapAPI_Search.framework */; };
 		9B44A5EF1F5F9A0000C32839 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5EA1F5F9A0000C32839 /* BaiduMapAPI_Utils.framework */; };
+		9B53D8F51F7106DD00CC9287 /* MyFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D8F41F7106DD00CC9287 /* MyFavoriteViewController.m */; };
+		9B53D8F81F710B0000CC9287 /* MyFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D8F71F710B0000CC9287 /* MyFavoriteView.m */; };
+		9B53D8FA1F710B0F00CC9287 /* MyFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B53D8F91F710B0F00CC9287 /* MyFavoriteView.xib */; };
 		9B58240D1CCDC4300020BA5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B58240C1CCDC4300020BA5C /* Main.storyboard */; };
 		9B84AC0A1D46FFF40062D663 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B84AC051D46FFF40062D663 /* libWeChatSDK.a */; };
 		9B84AC0B1D46FFF40062D663 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B84AC061D46FFF40062D663 /* README.txt */; };
@@ -189,6 +192,11 @@
 		9B44A5E81F5F9A0000C32839 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
 		9B44A5E91F5F9A0000C32839 /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
 		9B44A5EA1F5F9A0000C32839 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		9B53D8F31F7106DD00CC9287 /* MyFavoriteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFavoriteViewController.h; sourceTree = "<group>"; };
+		9B53D8F41F7106DD00CC9287 /* MyFavoriteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFavoriteViewController.m; sourceTree = "<group>"; };
+		9B53D8F61F710B0000CC9287 /* MyFavoriteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFavoriteView.h; sourceTree = "<group>"; };
+		9B53D8F71F710B0000CC9287 /* MyFavoriteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFavoriteView.m; sourceTree = "<group>"; };
+		9B53D8F91F710B0F00CC9287 /* MyFavoriteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFavoriteView.xib; sourceTree = "<group>"; };
 		9B58240C1CCDC4300020BA5C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9B84AC051D46FFF40062D663 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		9B84AC061D46FFF40062D663 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -414,6 +422,8 @@
 				9B123A171CBD14E700FCE823 /* RootTabbarViewController.m */,
 				9B295C7C1F67787100666EBD /* PushMessageListViewController.h */,
 				9B295C7D1F67787100666EBD /* PushMessageListViewController.m */,
+				9B53D8F31F7106DD00CC9287 /* MyFavoriteViewController.h */,
+				9B53D8F41F7106DD00CC9287 /* MyFavoriteViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -477,6 +487,9 @@
 				9B84AC121D4742340062D663 /* ShareView.h */,
 				9B84AC131D4742340062D663 /* ShareView.m */,
 				9B84AC101D4742290062D663 /* ShareView.xib */,
+				9B53D8F61F710B0000CC9287 /* MyFavoriteView.h */,
+				9B53D8F71F710B0000CC9287 /* MyFavoriteView.m */,
+				9B53D8F91F710B0F00CC9287 /* MyFavoriteView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -803,6 +816,7 @@
 				9B123A811CBE1DD300FCE823 /* SVProgressHUD.bundle in Resources */,
 				9B123A491CBD151000FCE823 /* MyPopView.xib in Resources */,
 				9B1239EB1CBD14A200FCE823 /* Assets.xcassets in Resources */,
+				9B53D8FA1F710B0F00CC9287 /* MyFavoriteView.xib in Resources */,
 				9B84AC111D4742290062D663 /* ShareView.xib in Resources */,
 				9BCB09731F60F5630016AE68 /* Info.plist in Resources */,
 				9B58240D1CCDC4300020BA5C /* Main.storyboard in Resources */,
@@ -844,12 +858,14 @@
 				9B41DF3E1CBF730B00D493FA /* LocationChange.m in Sources */,
 				9B84AC141D4742340062D663 /* ShareView.m in Sources */,
 				9BCB09721F60F5630016AE68 /* FMResultSet.m in Sources */,
+				9B53D8F81F710B0000CC9287 /* MyFavoriteView.m in Sources */,
 				9B295C7E1F67787100666EBD /* PushMessageListViewController.m in Sources */,
 				9BE50EDD1E61661200BBF6EA /* UIImageView+HighlightedWebCache.m in Sources */,
 				9B123A181CBD14E700FCE823 /* NewViewController.m in Sources */,
 				9B123A481CBD151000FCE823 /* MyPopView.m in Sources */,
 				9B123A191CBD14E700FCE823 /* OldViewController.m in Sources */,
 				9BE50EDF1E61661200BBF6EA /* UIView+WebCacheOperation.m in Sources */,
+				9B53D8F51F7106DD00CC9287 /* MyFavoriteViewController.m in Sources */,
 				9BE50ED31E61661200BBF6EA /* SDWebImageCompat.m in Sources */,
 				9BC8808F1CC0C98B006341D4 /* Reachability.m in Sources */,
 				9BE50ED01E61661200BBF6EA /* MKAnnotationView+WebCache.m in Sources */,

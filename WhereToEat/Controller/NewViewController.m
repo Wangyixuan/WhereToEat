@@ -76,7 +76,8 @@
     [self createBtns];
     //默认第一次进入
     self.isFirst = YES;
-    
+    //周边搜索结果列表页数 默认-1 表示还没有搜索
+    self.resultPage = -1;
     //POI搜索
     self.search = [[BMKPoiSearch alloc]init];
     self.detailSearch = [[BMKPoiDetailSearchOption alloc]init];
@@ -87,14 +88,13 @@
     [_locationManager startUserLocationService];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createBtns) name:@"createBtns" object:nil];
     
-//     [self createFirstView];
     //判断是否是第一次进入
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"first"]) {
         //第一次进入显示引导页面
         [self createFirstView];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"first"];
     }
-
+    [self startSearch];
     WLLog(@"viewDidLoad");
 }
 
@@ -105,12 +105,16 @@
     _mapView.delegate = self;
     _locationManager.delegate = self;
     self.search.delegate = self;
-    [self goUserLoc];
+  
     //隐藏old页面popView
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"removePopView" object:nil];
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"removePopView" object:nil];
     //显示已选标注的popView
     if (self.detailResult != nil) {
         [self createPopViewWith:self.detailResult];
+    }
+    //如果没有已选定标注 定位自己的位置
+    else{
+      [self goUserLoc];
     }
     WLLog(@"viewWillApper");
 }
@@ -122,7 +126,7 @@
     _mapView.delegate = nil;
     _locationManager.delegate = nil;
     self.search.delegate = nil;
-    [self.popView removeFromSuperview];
+//    [self.popView removeFromSuperview];
 
     WLLog(@"viewWillDisapper");
 }
@@ -283,7 +287,7 @@
 - (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResult errorCode:(BMKSearchErrorCode)errorCode{
 //    WLLog(@"result %@",poiResult.poiInfoList);
     WLLog(@"PoiResulterror %u",errorCode);
-    // 清楚屏幕中所有的annotation
+    // 清除屏幕中所有的annotation
     NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
     [_mapView removeAnnotations:array];
     
@@ -470,7 +474,6 @@
     
     MyPopView *popView = [MyPopView loadMyPopView];
     popView.frame = CGRectMake(0, self.view.bounds.size.height-150, self.view.bounds.size.width, 150);
-    popView.bottomView.hidden = YES;
     popView.detailResult = detailResult;
     [self.view addSubview:popView];
     self.popView = popView;

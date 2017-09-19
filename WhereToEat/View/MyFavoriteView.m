@@ -1,16 +1,17 @@
 //
-//  MyPopView.m
-//  Where to eat
+//  MyFavoriteView.m
+//  WhereToEat
 //
-//  Created by 王磊 on 16/4/12.
-//  Copyright © 2016年 WLtech. All rights reserved.
+//  Created by 王磊 on 2017/9/19.
+//  Copyright © 2017年 WLtech. All rights reserved.
 //
 
-#import "MyPopView.h"
+#import "MyFavoriteView.h"
 #import "WCAlertView.h"
 #import "LocalManager.h"
 
-@interface MyPopView ()
+
+@interface MyFavoriteView()
 //收藏按钮
 @property (weak, nonatomic) IBOutlet UIButton *favoriteBtn;
 //店名
@@ -32,8 +33,8 @@
 
 @end
 
+@implementation MyFavoriteView
 
-@implementation MyPopView
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -44,9 +45,9 @@
     self.layer.borderColor = [UIColor colorWithRed:255/255.0 green:201/255.0 blue:111/255.0 alpha:1].CGColor;
     
     UIImage *btnBG = [UIImage imageNamed:@"popView_bg"];
-    CGFloat top = 0; // 顶端盖高度
+    CGFloat top = 70; // 顶端盖高度
     
-    CGFloat bottom = 0 ; // 底端盖高度
+    CGFloat bottom = 70 ; // 底端盖高度
     
     CGFloat left = 70; // 左端盖宽度
     
@@ -59,9 +60,9 @@
     
 }
 
-+(instancetype)loadMyPopView{
++(instancetype)loadMyFavoriteView{
     
-    return [[NSBundle mainBundle] loadNibNamed:@"MyPopView" owner:nil options:nil].firstObject;
+    return [[NSBundle mainBundle] loadNibNamed:@"MyFavoriteView" owner:nil options:nil].firstObject;
 }
 
 //得到详细信息 控件赋值
@@ -70,13 +71,13 @@
     self.titleLabel.text = detailResult.name;
     self.subTitleLabel.text = detailResult.address;
     self.uid = detailResult.uid;
-   
+    
     NSString *nubStr =detailResult.phone;
     //会有多个电话号码的情况 只截取第一个电话号码
     NSArray *nubArray = [nubStr componentsSeparatedByString:@","];
     NSString *nub1 = [nubArray firstObject];
     [self.phoneNub setTitle:nub1 forState:UIControlStateNormal];
-   
+    
     self.detailURL = detailResult.detailUrl;
     self.toCoord = detailResult.pt;
     NSString *priceStr = [NSString stringWithFormat:@"人均:%%￥%.1f%%",detailResult.price];
@@ -88,7 +89,7 @@
     //改变颜色
     [priceMutStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(s1.length,s2.length)];
     self.priceLabel.attributedText = priceMutStr;
-   //查询plist 如果已存在显示已收藏
+    //查询plist 如果已存在显示已收藏
     NSString *uid = [KKSharedLocalManager kkValueForKey:self.titleLabel.text];
     if (uid.length>0) {
         self.favoriteBtn.selected = YES;
@@ -110,7 +111,7 @@
 //收藏按钮
 - (IBAction)favoriteBtnClick:(UIButton*)sender {
     sender.selected = !sender.selected;
-   //如果选中 说明已收藏 存入pilst
+    //如果选中 说明已收藏 存入pilst
     if (sender.selected==YES) {
         [KKSharedLocalManager setKKValue:self.uid forKey:self.titleLabel.text];
         if (self.uploadBlock) {

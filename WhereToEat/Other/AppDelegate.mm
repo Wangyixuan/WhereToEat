@@ -34,7 +34,7 @@ BMKMapManager* _mapManager;
     if (!ret) {
         WLLog(@"manager start failed!");
     }
-
+//    [NSThread sleepForTimeInterval:5];
     [self.window makeKeyAndVisible];
     
     //微信注册

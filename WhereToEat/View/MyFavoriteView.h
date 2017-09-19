@@ -1,17 +1,14 @@
 //
-//  MyPopView.h
-//  Where to eat
+//  MyFavoriteView.h
+//  WhereToEat
 //
-//  Created by 王磊 on 16/4/12.
-//  Copyright © 2016年 WLtech. All rights reserved.
-// 用于展示店面基本信息
+//  Created by 王磊 on 2017/9/19.
+//  Copyright © 2017年 WLtech. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
-#import <BaiduMapAPI_Search/BMKSearchComponent.h>
 
-
-@interface MyPopView : UIView
-
+@interface MyFavoriteView : UIView
 //详细结果数据
 @property (nonatomic, strong) BMKPoiDetailResult *detailResult;
 //跳转详情页面
@@ -21,5 +18,6 @@
 //上传收藏
 @property (nonatomic, copy) void (^uploadBlock)(BMKPoiDetailResult *detailResult);
 
-+(instancetype)loadMyPopView;
++(instancetype)loadMyFavoriteView;
+
 @end
