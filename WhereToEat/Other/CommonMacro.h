@@ -16,10 +16,17 @@
 #define WLLog(...)
 #endif
 
-#define WLScreenHIphone4s 480
-#define WLScreenHIphone5s  568
-#define WLScreenHIphone6s  667
-#define WLScreenHIphone6sp  736
+#define KKScreenHeightIphone4s 480
+#define KKScreenHeightIphone5  568
+#define KKScreenHeightIphone6  667
+#define KKScreenHeightIphone6p  736
+#define KKScreenHeightIphoneX  812
+
+#define KKScreenWidthIphone5  320
+#define KKScreenWidthIphone6 375
+#define KKScreenWidthIphone6p 414
+#define KKScreenWidthIphoneX 375
+
 #define WLScreenW [UIScreen mainScreen].bounds.size.width
 #define WLScreenH [UIScreen mainScreen].bounds.size.height
 #define sphereViewW WLScreenW*0.8
@@ -48,5 +55,10 @@
 #define KKStringIsNotBlank(string) [NSString isNotBlank:string]
 
 #define KKRegexNotBlack  @"^.+$"
+
+#define KK_STATUSBAR_HEIGHT    [[UIApplication sharedApplication] statusBarFrame].size.height
+#define KK_NAVIGATIONBAR_HEIGHT   self.navigationController.navigationBar.frame.size.height
+#define KK_STATUSBAR_AND_NAVIGATIONBAR_HEIGHT (KK_NAVIGATIONBAR_HEIGHT+KK_STATUSBAR_HEIGHT)
+#define KK_HOMEBAR_HEIGHT 32
 
 #endif /* CommonMacro_h */

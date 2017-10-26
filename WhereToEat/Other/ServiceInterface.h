@@ -9,8 +9,8 @@
 #ifndef ServiceInterface_h
 #define ServiceInterface_h
 
-//#define ServerDomain @"http://192.168.40.6:9999"
-#define ServerDomain @"https://www.zhangxiaoshuai.cn"
+#define ServerDomain @"http://192.168.40.6:9999"
+//#define ServerDomain @"https://www.zhangxiaoshuai.cn"
 //#define ServerDomain @"https://139.196.143.123"
 
 // Application

@@ -79,6 +79,9 @@
         }else{
             [SVProgressHUD showErrorWithStatus:@"您还没有安装微信" duration:2.0];
         }
+    }else if (indexPath.row == 5){
+        WLLog(@"反馈");
+
     }
 }
 

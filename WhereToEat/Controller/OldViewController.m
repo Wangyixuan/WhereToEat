@@ -98,7 +98,7 @@
     [self.view addSubview:randomBtn];
     self.randomBtn = randomBtn;
     
-    UIButton *pushMesBtn = [[UIButton alloc]initWithFrame:CGRectMake(WLScreenW-WLScreenW*0.15, 20, WLScreenW*0.15, WLScreenW*0.1)];
+    UIButton *pushMesBtn = [[UIButton alloc]initWithFrame:CGRectMake(WLScreenW-WLScreenW*0.15, KK_STATUSBAR_HEIGHT, WLScreenW*0.15, WLScreenW*0.1)];
     [pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
     [pushMesBtn addTarget:self action:@selector(pushMessageList) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:pushMesBtn];
@@ -109,7 +109,10 @@
 -(void)createBallView{
     [self.sphereView removeFromSuperview];
     _sphereView = [[XLSphereView alloc] initWithFrame:CGRectMake((WLScreenW-sphereViewW)*0.5, WLScreenW*0.15, sphereViewW, sphereViewH)];
-//    _sphereView.backgroundColor = [UIColor blueColor];
+    if (WLScreenH == KKScreenHeightIphoneX) {
+        _sphereView.frame = CGRectMake((WLScreenW-sphereViewW)*0.5, KK_STATUSBAR_AND_NAVIGATIONBAR_HEIGHT, sphereViewW, sphereViewH);
+    }
+    _sphereView.backgroundColor = [UIColor blueColor];
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
     //获取所以收藏的店面
     NSArray *keyArray = [KKSharedLocalManager.plistDataDic allKeys];
