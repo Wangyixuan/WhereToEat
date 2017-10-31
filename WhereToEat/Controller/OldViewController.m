@@ -44,7 +44,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createBallView) name:@"updatePlist" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removePopView) name:@"removePopView" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(newPushMessage) name:@"newPushMessage" object:nil];
-
+    [self randomBtnClick];
     
 }
 
@@ -74,7 +74,9 @@
 - (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
     //    WLLog(@"resultDetail %@",poiDetailResult);
     WLLog(@"error %u",errorCode);
-    [self createPopViewWithDetailResult:poiDetailResult];
+    if (errorCode==0) {
+        [self createPopViewWithDetailResult:poiDetailResult];
+    }
 }
 
 #pragma mark - selector
@@ -112,7 +114,7 @@
     if (WLScreenH == KKScreenHeightIphoneX) {
         _sphereView.frame = CGRectMake((WLScreenW-sphereViewW)*0.5, KK_STATUSBAR_AND_NAVIGATIONBAR_HEIGHT, sphereViewW, sphereViewH);
     }
-    _sphereView.backgroundColor = [UIColor blueColor];
+//    _sphereView.backgroundColor = [UIColor blueColor];
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
     //获取所以收藏的店面
     NSArray *keyArray = [KKSharedLocalManager.plistDataDic allKeys];

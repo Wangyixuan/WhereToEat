@@ -12,6 +12,7 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "SVProgressHUD.h"
+#import "OpinionViewController.h"
 
 @interface SetTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *VersionLabel;
@@ -81,6 +82,8 @@
         }
     }else if (indexPath.row == 5){
         WLLog(@"反馈");
+        OpinionViewController *opinionVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OpinionViewController"];
+        [self.navigationController pushViewController:opinionVC animated:YES];
 
     }
 }

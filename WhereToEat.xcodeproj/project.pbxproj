@@ -61,6 +61,7 @@
 		9B84AC0F1D4701570062D663 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B84AC0E1D4701570062D663 /* libc++.tbd */; };
 		9B84AC111D4742290062D663 /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B84AC101D4742290062D663 /* ShareView.xib */; };
 		9B84AC141D4742340062D663 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AC131D4742340062D663 /* ShareView.m */; };
+		9B9A23921FA6C68D00A15C53 /* OpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A23911FA6C68D00A15C53 /* OpinionViewController.m */; };
 		9B9F919C1CCB62BC009ACC37 /* firstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F919B1CCB62BC009ACC37 /* firstView.m */; };
 		9B9F919E1CCB62C6009ACC37 /* firstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F919D1CCB62C6009ACC37 /* firstView.xib */; };
 		9BBE684E1F5E465E0096A1E7 /* jpush-ios-3.0.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBE684C1F5E465E0096A1E7 /* jpush-ios-3.0.6.a */; };
@@ -208,6 +209,8 @@
 		9B84AC101D4742290062D663 /* ShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareView.xib; sourceTree = "<group>"; };
 		9B84AC121D4742340062D663 /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
 		9B84AC131D4742340062D663 /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		9B9A23901FA6C68D00A15C53 /* OpinionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpinionViewController.h; sourceTree = "<group>"; };
+		9B9A23911FA6C68D00A15C53 /* OpinionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpinionViewController.m; sourceTree = "<group>"; };
 		9B9F919A1CCB62BC009ACC37 /* firstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstView.h; sourceTree = "<group>"; };
 		9B9F919B1CCB62BC009ACC37 /* firstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstView.m; sourceTree = "<group>"; };
 		9B9F919D1CCB62C6009ACC37 /* firstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = firstView.xib; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				9B295C7D1F67787100666EBD /* PushMessageListViewController.m */,
 				9B53D8F31F7106DD00CC9287 /* MyFavoriteViewController.h */,
 				9B53D8F41F7106DD00CC9287 /* MyFavoriteViewController.m */,
+				9B9A23901FA6C68D00A15C53 /* OpinionViewController.h */,
+				9B9A23911FA6C68D00A15C53 /* OpinionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 				9BE50ED31E61661200BBF6EA /* SDWebImageCompat.m in Sources */,
 				9BC8808F1CC0C98B006341D4 /* Reachability.m in Sources */,
 				9BE50ED01E61661200BBF6EA /* MKAnnotationView+WebCache.m in Sources */,
+				9B9A23921FA6C68D00A15C53 /* OpinionViewController.m in Sources */,
 				9B123A821CBE1DD300FCE823 /* SVProgressHUD.m in Sources */,
 				9BE50ED81E61661200BBF6EA /* SDWebImagePrefetcher.m in Sources */,
 				9BE50ED61E61661200BBF6EA /* SDWebImageDownloaderOperation.m in Sources */,

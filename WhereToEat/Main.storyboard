@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,7 +44,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJZ-l4-r3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1390" y="1235"/>
+            <point key="canvasLocation" x="-1724" y="1246"/>
         </scene>
         <!--My Favorite View Controller-->
         <scene sceneID="9BH-Bc-gLI">
@@ -63,7 +63,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKe-Ps-PPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-625" y="1233"/>
+            <point key="canvasLocation" x="-906" y="1245"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="SnO-hV-bqF">
+            <objects>
+                <navigationController id="M2f-0I-3fm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="设置" image="Button_set" selectedImage="Button_set_sel" id="LGx-v4-MR8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ffM-Qy-1e7">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AyP-Zy-sJc" kind="relationship" relationship="rootViewController" id="pcy-sJ-FMh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTC-kR-QQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="1157"/>
         </scene>
         <!--设置-->
         <scene sceneID="EPh-Oc-bsM">
@@ -265,7 +282,9 @@
                             <outlet property="delegate" destination="AyP-Zy-sJc" id="PUL-yJ-Xcg"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="设置" image="Button_set" selectedImage="Button_set_sel" id="pdM-hH-7JD"/>
+                    <navigationItem key="navigationItem" title="设置" id="2Ys-yE-wAS">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="XqZ-qc-tcz"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="VersionLabel" destination="OQ8-g6-XzK" id="JRx-bK-OAo"/>
@@ -274,12 +293,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4PW-Xn-4ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182" y="1157"/>
+            <point key="canvasLocation" x="748" y="1155"/>
         </scene>
-        <!--View Controller-->
+        <!--意见反馈-->
         <scene sceneID="daD-rb-0af">
             <objects>
-                <viewController id="w6S-tq-t6Z" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OpinionViewController" hidesBottomBarWhenPushed="YES" id="w6S-tq-t6Z" customClass="OpinionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XzT-1p-dIU"/>
                         <viewControllerLayoutGuide type="bottom" id="qjU-sb-VJ7"/>
@@ -288,21 +307,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kZX-BU-FgU">
-                                <rect key="frame" x="16" y="20" width="343" height="232"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZX-BU-FgU">
+                                <rect key="frame" x="16" y="40" width="343" height="241"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="w6S-tq-t6Z" id="S26-cT-bGd"/>
+                                </connections>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNB-wt-E1Q">
+                                <rect key="frame" x="16" y="311" width="343" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.78823529410000004" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="qCJ-9O-DKN"/>
+                                </constraints>
+                                <state key="normal" title="提交反馈"/>
+                                <connections>
+                                    <action selector="updateBtnClick:" destination="w6S-tq-t6Z" eventType="touchUpInside" id="6f5-dy-btv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请留下您的宝贵意见和建议，我们将努力改进" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p08-6S-Agh">
+                                <rect key="frame" x="26" y="45" width="323" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="OnI-i9-v7W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uNB-wt-E1Q" firstAttribute="centerY" secondItem="Pxx-KK-iaY" secondAttribute="centerY" id="3Ix-Dd-UDR"/>
+                            <constraint firstItem="uNB-wt-E1Q" firstAttribute="top" secondItem="kZX-BU-FgU" secondAttribute="bottom" constant="30" id="6XI-ED-0AB"/>
+                            <constraint firstItem="kZX-BU-FgU" firstAttribute="leading" secondItem="Pxx-KK-iaY" secondAttribute="leading" constant="16" id="7qD-o8-Dw0"/>
+                            <constraint firstItem="kZX-BU-FgU" firstAttribute="top" secondItem="XzT-1p-dIU" secondAttribute="bottom" constant="20" id="9EO-Ax-caJ"/>
+                            <constraint firstAttribute="trailing" secondItem="kZX-BU-FgU" secondAttribute="trailing" constant="16" id="Jlx-78-8z7"/>
+                            <constraint firstItem="uNB-wt-E1Q" firstAttribute="centerX" secondItem="Pxx-KK-iaY" secondAttribute="centerX" id="LUj-er-N5M"/>
+                            <constraint firstItem="p08-6S-Agh" firstAttribute="trailing" secondItem="kZX-BU-FgU" secondAttribute="trailing" constant="-10" id="QwP-cX-PdG"/>
+                            <constraint firstItem="p08-6S-Agh" firstAttribute="top" secondItem="kZX-BU-FgU" secondAttribute="top" constant="5" id="ZRE-3r-rTm"/>
+                            <constraint firstItem="p08-6S-Agh" firstAttribute="leading" secondItem="kZX-BU-FgU" secondAttribute="leading" constant="10" id="aw9-Cm-caj"/>
+                            <constraint firstItem="uNB-wt-E1Q" firstAttribute="leading" secondItem="kZX-BU-FgU" secondAttribute="leading" id="u0W-TR-FzN"/>
+                            <constraint firstItem="uNB-wt-E1Q" firstAttribute="trailing" secondItem="kZX-BU-FgU" secondAttribute="trailing" id="w9j-Iv-cRV"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="意见反馈" id="5Gq-sb-Lru"/>
+                    <connections>
+                        <outlet property="placeHolderLab" destination="p08-6S-Agh" id="mga-0O-oAE"/>
+                        <outlet property="textView" destination="kZX-BU-FgU" id="9Gs-hK-ANy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBD-le-feI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="1158.1709145427287"/>
+            <point key="canvasLocation" x="1386" y="1156"/>
         </scene>
         <!--收藏-->
         <scene sceneID="JcJ-jO-TsN">
@@ -459,8 +517,7 @@
                     <connections>
                         <segue destination="vae-DK-PjA" kind="relationship" relationship="viewControllers" id="sgJ-fA-NGh"/>
                         <segue destination="6kN-2p-5te" kind="relationship" relationship="viewControllers" id="cZs-Hr-kGu"/>
-                        <segue destination="AyP-Zy-sJc" kind="relationship" relationship="viewControllers" id="Y1F-D7-mam"/>
-                        <segue destination="QNo-an-hYh" kind="relationship" relationship="viewControllers" id="A8J-6A-Hrl"/>
+                        <segue destination="M2f-0I-3fm" kind="relationship" relationship="viewControllers" id="fmQ-9S-qyk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfw-bg-emn" userLabel="First Responder" sceneMemberID="firstResponder"/>
