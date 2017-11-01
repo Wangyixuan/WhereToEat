@@ -49,6 +49,8 @@ BMKMapManager* _mapManager;
     _locationManager=[[BMKLocationService alloc]init];
     _locationManager.delegate = self;
     [_locationManager startUserLocationService];
+    
+    
     return YES;
 }
 

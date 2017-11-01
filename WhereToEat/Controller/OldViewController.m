@@ -42,8 +42,9 @@
     self.detailSearch = [[BMKPoiDetailSearchOption alloc]init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createBallView) name:@"updatePlist" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removePopView) name:@"removePopView" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(newPushMessage) name:@"newPushMessage" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removePopView) name:@"removePopView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPushMessage) name:@"newPushMessage" object:nil];
+   
     [self randomBtnClick];
     
 }
@@ -62,21 +63,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - BMKPoiSearchDelegate
-/**
- *返回POI详情搜索结果
- *@param searcher 搜索对象
- *@param poiDetailResult 详情搜索结果
- *@param errorCode 错误号，@see BMKSearchErrorCode
- */
-- (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
-    //    WLLog(@"resultDetail %@",poiDetailResult);
-    WLLog(@"error %u",errorCode);
-    if (errorCode==0) {
-        [self createPopViewWithDetailResult:poiDetailResult];
-    }
 }
 
 #pragma mark - selector
@@ -107,6 +93,26 @@
     self.pushMesBtn = pushMesBtn;
 }
 
+//去添加按钮方法
+-(void)goSearch{
+    //跳转到搜索页面
+    self.tabBarController.selectedIndex=1;
+}
+
+//选出随机结果
+-(void)randomBtnClick{
+    WLLog(@"随机");
+    //    WLLog(@"%@",self.array);
+    if (self.array.count>0) {
+        int x = arc4random() % self.array.count;
+        if (self.array.count>x) {
+            UIButton *result = [self.array objectAtIndex:x];
+            [self buttonPressed:result];
+        }
+    }else{
+        self.tabBarController.selectedIndex=1;
+    }
+}
 
 -(void)createBallView{
     [self.sphereView removeFromSuperview];
@@ -132,7 +138,6 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
             NSString *name = [keyArray objectAtIndex:i];
             NSString *nameStr = [NSString stringWithFormat:@"%@",name];
-            
             
             [btn setTitle:nameStr forState:UIControlStateNormal];
             btn.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
@@ -205,26 +210,23 @@
     }];
 }
 
-//去添加按钮方法
--(void)goSearch{
-    //跳转到搜索页面
-    self.tabBarController.selectedIndex=1;
-}
-
-//选出随机结果
--(void)randomBtnClick{
-    WLLog(@"随机");
-//    WLLog(@"%@",self.array);
-    if (self.array.count>0) {
-        int x = arc4random() % self.array.count;
-        if (self.array.count>x) {
-            UIButton *result = [self.array objectAtIndex:x];
-            [self buttonPressed:result];
-        }
-    }else{
-        self.tabBarController.selectedIndex=1;
+#pragma mark - BMKPoiSearchDelegate
+/**
+ *返回POI详情搜索结果
+ *@param searcher 搜索对象
+ *@param poiDetailResult 详情搜索结果
+ *@param errorCode 错误号，@see BMKSearchErrorCode
+ */
+- (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
+    //    WLLog(@"resultDetail %@",poiDetailResult);
+    WLLog(@"error %u",errorCode);
+    if (errorCode==0) {
+        [self createPopViewWithDetailResult:poiDetailResult];
+    }else if (errorCode==5){
+        [self.search poiDetailSearch:self.detailSearch];
     }
 }
+
 //根据搜索结果 弹出相应popView
 -(void)createPopViewWithDetailResult:(BMKPoiDetailResult*)poiDetailResult{
     [self.popView removeFromSuperview];
@@ -253,6 +255,7 @@
 -(void)removePopView{
     [self.popView removeFromSuperview];
 }
+
 //跳转到推送消息列表
 -(void)pushMessageList{
     [_pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes"] forState:UIControlStateNormal];
@@ -263,4 +266,6 @@
 -(void)newPushMessage{
     [_pushMesBtn setImage:[UIImage imageNamed:@"Button_pushMes_new"] forState:UIControlStateNormal];
 }
+
+
 @end

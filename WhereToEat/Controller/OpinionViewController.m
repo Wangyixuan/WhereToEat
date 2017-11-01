@@ -60,7 +60,7 @@
     //创建请求 Task
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:requestM completionHandler:
                                       ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                          if (data) {
+                                           if(!error && data.length > 0) {
                                               NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                                               long long result = [respDic longlongForKey:@"result" defaultValue:0];
                                               if (result==200) {
