@@ -7,16 +7,23 @@
 //
 
 #import "PushMessageListViewController.h"
+#import "DetailViewController.h"
 #import "PushMesCell.h"
+#import "WLPoiDetailResult.h"
+
+#import <MapKit/MapKit.h>
+#import "LocationChange.h"
 
 #define cellIdentifier @"PushMesCell"
 
 
-@interface PushMessageListViewController ()<UITableViewDelegate,UITableViewDataSource,BMKPoiSearchDelegate>
+@interface PushMessageListViewController ()<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
-
-
+//定位服务
+@property(nonatomic,strong) BMKLocationService *locationManager;
+//用户所在区域
+@property(nonatomic,assign) BMKCoordinateRegion userRegion;
 @end
 
 @implementation PushMessageListViewController
@@ -28,6 +35,23 @@
  
     self.dataArr = [NSMutableArray array];
     [self loadData];
+    
+    //请求定位服务
+    _locationManager=[[BMKLocationService alloc]init];   
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    _locationManager.delegate = self;
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = YES;
+    _locationManager.delegate = nil;
+    
 }
 
 -(void)loadData{
@@ -53,8 +77,28 @@
                                       ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                           
                                           //解析服务器返回的数据
-                                          WLLog(@"uploadLocation%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                          WLLog(@"pushList%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                                           WLLog(@"error %@",error);
+                                          if(!error && data.length > 0) {
+                                              NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                                              NSArray *gymList = [respDic objectForKey:@"gymList"];
+                                              if (gymList.count>0) {
+                                                  for (NSDictionary *dic in gymList) {
+                                                      WLPoiDetailResult *poiResult = [[WLPoiDetailResult alloc]initPoiDetailResultWithDic:dic];
+                                                      [self.dataArr addObject:poiResult];
+                                                      
+                                                  }
+                                                  
+                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                      [self.tableView reloadData];
+                                                  });
+                                                  
+                                                  
+                                              }
+                                          
+                                          }
+                                          
+                                          
                                       }];
     //发送请求（执行Task）
     [dataTask resume];
@@ -82,7 +126,7 @@
                                       ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                           
                                           //解析服务器返回的数据
-                                          WLLog(@"uploadLocation%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                          WLLog(@"pushList%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                                           WLLog(@"error %@",error);
                                       }];
     //发送请求（执行Task）
@@ -93,19 +137,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-//    self.search.delegate = self;
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = YES;
-//    self.search.delegate = nil;
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -126,8 +157,22 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PushMesCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     if (indexPath.section<self.dataArr.count) {
-        cell.detailSearch = [self.dataArr objectAtIndex:indexPath.section];
+        cell.pushDetailResult = [self.dataArr objectAtIndex:indexPath.section];
     }
+    WLWEAKSELF
+    cell.pushDetailBlock = ^(NSString *detailURL){
+        WLLog(@"详情");
+        DetailViewController *detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        detailVC.detailURL = detailURL;
+        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:detailVC];
+        [weakself presentViewController:navController animated:YES completion:nil];
+    };
+    cell.pushPoisionBlock = ^(CLLocationCoordinate2D coord,NSString*name){
+        [WLSharedGlobalManager updateUserLocation];       
+        [WLSharedGlobalManager naviClickWithCrood:coord name:name];
+       
+        WLLog(@"导航");
+    };
     return cell;
 }
 

@@ -31,8 +31,7 @@
 //背景图
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 @property (nonatomic, strong) BMKPoiSearch *search;
-//详细结果数据
-@property (nonatomic, strong) BMKPoiDetailResult *pushDetailResult;
+
 @end
 
 @implementation PushMesCell
@@ -64,23 +63,23 @@
     // Configure the view for the selected state
 }
 
--(void)setDetailSearch:(BMKPoiDetailSearchOption *)detailSearch{
-    _detailSearch = detailSearch;
-    BOOL resultCode = [self.search poiDetailSearch:detailSearch];
-    if (resultCode) {
-        WLLog(@"成功");
-    }else{
-        WLLog(@"失败");
-    }
-}
-- (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
-    WLLog(@"resultDetail %@",poiDetailResult.name);
-    WLLog(@"error %u",errorCode);
-    self.pushDetailResult = poiDetailResult;
-}
+//-(void)setDetailSearch:(BMKPoiDetailSearchOption *)detailSearch{
+//    _detailSearch = detailSearch;
+//    BOOL resultCode = [self.search poiDetailSearch:detailSearch];
+//    if (resultCode) {
+//        WLLog(@"成功");
+//    }else{
+//        WLLog(@"失败");
+//    }
+//}
+//- (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
+//    WLLog(@"resultDetail %@",poiDetailResult.name);
+//    WLLog(@"error %u",errorCode);
+//    self.pushDetailResult = poiDetailResult;
+//}
 
 //得到详细信息 控件赋值
--(void)setPushDetailResult:(BMKPoiDetailResult *)pushDetailResult{
+-(void)setPushDetailResult:(WLPoiDetailResult *)pushDetailResult{
     _pushDetailResult = pushDetailResult;
     self.pushTitleLabel.text = pushDetailResult.name;
     self.pushSubTitleLabel.text = pushDetailResult.address;

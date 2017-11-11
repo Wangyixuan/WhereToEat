@@ -45,6 +45,11 @@
 		9B295C821F67794C00666EBD /* PushMesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C801F67794C00666EBD /* PushMesCell.m */; };
 		9B295C831F67794C00666EBD /* PushMesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C811F67794C00666EBD /* PushMesCell.xib */; };
 		9B295C8D1F691E7400666EBD /* NetWorkingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B295C8C1F691E7400666EBD /* NetWorkingUtils.m */; };
+		9B2A666D1FB53E3500DBDD58 /* Bugtags.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B2A666B1FB53E3300DBDD58 /* Bugtags.bundle */; };
+		9B2A666E1FB53E3500DBDD58 /* Bugtags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2A666C1FB53E3500DBDD58 /* Bugtags.framework */; };
+		9B2A66761FB5806B00DBDD58 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2A66751FB5805300DBDD58 /* ImageIO.framework */; };
+		9B2A667C1FB5878400DBDD58 /* WLPoiDetailResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A667B1FB5878400DBDD58 /* WLPoiDetailResult.m */; };
+		9B2A667F1FB5955200DBDD58 /* WLGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A667E1FB5955200DBDD58 /* WLGlobalManager.m */; };
 		9B41DF3E1CBF730B00D493FA /* LocationChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41DF3D1CBF730B00D493FA /* LocationChange.m */; };
 		9B44A5EB1F5F9A0000C32839 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E61F5F9A0000C32839 /* BaiduMapAPI_Base.framework */; };
 		9B44A5EC1F5F9A0000C32839 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B44A5E71F5F9A0000C32839 /* BaiduMapAPI_Location.framework */; };
@@ -185,6 +190,13 @@
 		9B295C871F67C89400666EBD /* ServiceInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceInterface.h; sourceTree = "<group>"; };
 		9B295C8B1F691E7400666EBD /* NetWorkingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingUtils.h; sourceTree = "<group>"; };
 		9B295C8C1F691E7400666EBD /* NetWorkingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingUtils.m; sourceTree = "<group>"; };
+		9B2A666B1FB53E3300DBDD58 /* Bugtags.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Bugtags.bundle; sourceTree = "<group>"; };
+		9B2A666C1FB53E3500DBDD58 /* Bugtags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugtags.framework; sourceTree = "<group>"; };
+		9B2A66751FB5805300DBDD58 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		9B2A667A1FB5878400DBDD58 /* WLPoiDetailResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPoiDetailResult.h; sourceTree = "<group>"; };
+		9B2A667B1FB5878400DBDD58 /* WLPoiDetailResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPoiDetailResult.m; sourceTree = "<group>"; };
+		9B2A667D1FB5955200DBDD58 /* WLGlobalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLGlobalManager.h; sourceTree = "<group>"; };
+		9B2A667E1FB5955200DBDD58 /* WLGlobalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLGlobalManager.m; sourceTree = "<group>"; };
 		9B41DF3C1CBF730B00D493FA /* LocationChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationChange.h; sourceTree = "<group>"; };
 		9B41DF3D1CBF730B00D493FA /* LocationChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationChange.m; sourceTree = "<group>"; };
 		9B41DF3F1CBF7A9500D493FA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -302,6 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2A66761FB5806B00DBDD58 /* ImageIO.framework in Frameworks */,
 				9BBE68561F5E48820096A1E7 /* libresolv.tbd in Frameworks */,
 				9BBE68541F5E486C0096A1E7 /* UserNotifications.framework in Frameworks */,
 				9B44A5EF1F5F9A0000C32839 /* BaiduMapAPI_Utils.framework in Frameworks */,
@@ -320,6 +333,7 @@
 				9BC7F5691ED4214500F7058B /* libcrypto.a in Frameworks */,
 				9B44A5ED1F5F9A0000C32839 /* BaiduMapAPI_Map.framework in Frameworks */,
 				9B123A631CBD162C00FCE823 /* Security.framework in Frameworks */,
+				9B2A666E1FB53E3500DBDD58 /* Bugtags.framework in Frameworks */,
 				9B44A5EB1F5F9A0000C32839 /* BaiduMapAPI_Base.framework in Frameworks */,
 				9B123A611CBD162200FCE823 /* CoreTelephony.framework in Frameworks */,
 				9B123A5F1CBD161900FCE823 /* libsqlite3.0.tbd in Frameworks */,
@@ -438,6 +452,8 @@
 			children = (
 				9B123A771CBD1B6300FCE823 /* MyPointAnnotation.h */,
 				9B123A781CBD1B6300FCE823 /* MyPointAnnotation.m */,
+				9B2A667A1FB5878400DBDD58 /* WLPoiDetailResult.h */,
+				9B2A667B1FB5878400DBDD58 /* WLPoiDetailResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +461,7 @@
 		9B123A221CBD151000FCE823 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9B2A666A1FB53DF100DBDD58 /* BugTags_2.4.0 */,
 				9BCB09541F60F5630016AE68 /* fmdb */,
 				9BBE684B1F5E45B00096A1E7 /* JPush */,
 				9BBE684A1F5E3FEA0096A1E7 /* WhereToEat.entitlements */,
@@ -534,6 +551,8 @@
 			children = (
 				9B123A891CBE664F00FCE823 /* LocalManager.h */,
 				9B123A8A1CBE664F00FCE823 /* LocalManager.m */,
+				9B2A667D1FB5955200DBDD58 /* WLGlobalManager.h */,
+				9B2A667E1FB5955200DBDD58 /* WLGlobalManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -545,6 +564,15 @@
 				9B295C8C1F691E7400666EBD /* NetWorkingUtils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B2A666A1FB53DF100DBDD58 /* BugTags_2.4.0 */ = {
+			isa = PBXGroup;
+			children = (
+				9B2A666B1FB53E3300DBDD58 /* Bugtags.bundle */,
+				9B2A666C1FB53E3500DBDD58 /* Bugtags.framework */,
+			);
+			path = BugTags_2.4.0;
 			sourceTree = "<group>";
 		};
 		9B41DF3B1CBF730B00D493FA /* LocationChange */ = {
@@ -581,6 +609,7 @@
 		9BC7F5581ED41F8100F7058B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B2A66751FB5805300DBDD58 /* ImageIO.framework */,
 				9B84AC0E1D4701570062D663 /* libc++.tbd */,
 				9B84AC0C1D4701420062D663 /* libz.tbd */,
 				9B123A6C1CBD166100FCE823 /* CoreLocation.framework */,
@@ -822,6 +851,7 @@
 				9B123A491CBD151000FCE823 /* MyPopView.xib in Resources */,
 				9B1239EB1CBD14A200FCE823 /* Assets.xcassets in Resources */,
 				9B53D8FA1F710B0F00CC9287 /* MyFavoriteView.xib in Resources */,
+				9B2A666D1FB53E3500DBDD58 /* Bugtags.bundle in Resources */,
 				9B84AC111D4742290062D663 /* ShareView.xib in Resources */,
 				9BCB09731F60F5630016AE68 /* Info.plist in Resources */,
 				9B58240D1CCDC4300020BA5C /* Main.storyboard in Resources */,
@@ -837,6 +867,7 @@
 			files = (
 				9BE50EDA1E61661200BBF6EA /* UIImage+GIF.m in Sources */,
 				9B123A1A1CBD14E700FCE823 /* RootTabbarViewController.m in Sources */,
+				9B2A667F1FB5955200DBDD58 /* WLGlobalManager.m in Sources */,
 				9B123A791CBD1B6300FCE823 /* MyPointAnnotation.m in Sources */,
 				9BC880921CC0CB8D006341D4 /* GuideViewController.m in Sources */,
 				9BE50EE71E6169E200BBF6EA /* NSObject+Convertor.m in Sources */,
@@ -860,6 +891,7 @@
 				9BE50ED11E61661200BBF6EA /* NSData+ImageContentType.m in Sources */,
 				9BE50ED51E61661200BBF6EA /* SDWebImageDownloader.m in Sources */,
 				9BCB09531F60F4F20016AE68 /* KKBaseDao.m in Sources */,
+				9B2A667C1FB5878400DBDD58 /* WLPoiDetailResult.m in Sources */,
 				9B41DF3E1CBF730B00D493FA /* LocationChange.m in Sources */,
 				9B84AC141D4742340062D663 /* ShareView.m in Sources */,
 				9BCB09721F60F5630016AE68 /* FMResultSet.m in Sources */,
@@ -1013,6 +1045,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhereToEat/Other/ADMob",
 					"$(PROJECT_DIR)/WhereToEat/Other/sdk",
+					"$(PROJECT_DIR)/WhereToEat/Other/BugTags_2.4.0",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = WhereToEat/Other/PrefixHeader.pch;
@@ -1047,6 +1080,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhereToEat/Other/ADMob",
 					"$(PROJECT_DIR)/WhereToEat/Other/sdk",
+					"$(PROJECT_DIR)/WhereToEat/Other/BugTags_2.4.0",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = WhereToEat/Other/PrefixHeader.pch;

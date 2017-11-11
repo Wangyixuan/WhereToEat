@@ -248,7 +248,11 @@
         detailVC.detailURL = detailURL;
         UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:detailVC];
         [weakself presentViewController:navController animated:YES completion:nil];
-        
+    };
+    popView.poisionBlock = ^(CLLocationCoordinate2D coord,NSString*name){
+        [WLSharedGlobalManager updateUserLocation];
+        [WLSharedGlobalManager naviClickWithCrood:coord name:name];
+        WLLog(@"导航");
     };
 }
 

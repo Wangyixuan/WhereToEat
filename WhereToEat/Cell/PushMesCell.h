@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLPoiDetailResult.h"
 
 @interface PushMesCell : UITableViewCell
 
@@ -14,5 +15,7 @@
 @property (nonatomic, copy) void(^pushDetailBlock)(NSString *detailURL);
 //导航
 @property (nonatomic, copy) void(^pushPoisionBlock)(CLLocationCoordinate2D coord,NSString *name);
-@property (nonatomic, strong) BMKPoiDetailSearchOption*detailSearch;
+//@property (nonatomic, strong) BMKPoiDetailSearchOption*detailSearch;
+//详细结果数据
+@property (nonatomic, strong) WLPoiDetailResult *pushDetailResult;
 @end

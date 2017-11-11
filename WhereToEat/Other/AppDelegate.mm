@@ -26,15 +26,14 @@ BMKMapManager* _mapManager;
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-//   BOOL canOpenBMK = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]];
-    // 要使用百度地图，请先启动BaiduMapManager
+
+    [Bugtags startWithAppKey:@"28383f287c07484baea03b03b9484826" invocationEvent:BTGInvocationEventNone];
+        // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"diowtHBh0Pgpl6mAjgI3bnZhHpTmu42L" generalDelegate:self];
     if (!ret) {
         WLLog(@"manager start failed!");
     }
-//    [NSThread sleepForTimeInterval:5];
     [self.window makeKeyAndVisible];
     
     //微信注册
@@ -45,12 +44,8 @@ BMKMapManager* _mapManager;
         NSString *uuid = [[NSUUID UUID] UUIDString];
         [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid"];
     }
-    //请求定位服务
-    _locationManager=[[BMKLocationService alloc]init];
-    _locationManager.delegate = self;
-    [_locationManager startUserLocationService];
-    
-    
+   //请求定位服务
+    [WLSharedGlobalManager updateUserLocation];
     return YES;
 }
 
@@ -88,63 +83,7 @@ BMKMapManager* _mapManager;
      */
     //    [BMKMapView willBackGround];//废弃方法（空实现）,逻辑由地图SDK控制
 }
-/**
- *用户位置更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation;{
-    //    WLLog(@"位置更新");
-    CLLocationCoordinate2D coords = userLocation.location.coordinate;
-    [_locationManager stopUserLocationService];
-    _locationManager.delegate = nil;
-    WLLog(@"位置%f,%f",coords.latitude,coords.longitude);
-    [self uploadUserLocationWithLat:coords.latitude andLon:coords.longitude];
-}
 
--(void)uploadUserLocationWithLat:(double)lat andLon:(double)lon{
-    NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
-    //确定请求路径
-    NSString *urlStr = [NSString stringWithFormat:@"%@?lat=%f&lon=%f&uuid=%@",UpLoadLocationServerInterface,lat,lon,uuid];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    //创建 NSURLSession 对象
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    /**
-     根据对象创建 Task 请求
-     
-     url  方法内部会自动将 URL 包装成一个请求对象（默认是 GET 请求）
-     completionHandler  完成之后的回调（成功或失败）
-     
-     param data     返回的数据（响应体）
-     param response 响应头
-     param error    错误信息
-     */
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:
-                                      ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                          
-                                          //解析服务器返回的数据
-                                          WLLog(@"uploadLocation%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                                          WLLog(@"error %@",error);
-                                      }];
-    //发送请求（执行Task）
-    [dataTask resume];
-}
-/**
- *定位失败后，会调用此函数
- *@param error 错误号
- */
-- (void)didFailToLocateUserWithError:(NSError *)error{
-    WLLog(@"location error %@",error);
-    switch ([error code]) {
-        case kCLErrorDenied:{
-            UIAlertView *alet = [[UIAlertView alloc] initWithTitle:@"当前定位服务不可用" message:@"请到“设置->隐私->定位服务”中开启定位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-            [alet show];
-        }
-            break;
-        default:
-            break;
-    }
-}
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];

@@ -20,10 +20,12 @@
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <Bugtags/Bugtags.h>
 //view
 #import "MyPopView.h"
 //manager
 #import "LocalManager.h"
+#import "WLGlobalManager.h"
 
 #import "CategoryHeader.h"
 

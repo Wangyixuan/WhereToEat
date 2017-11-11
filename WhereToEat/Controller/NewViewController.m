@@ -260,23 +260,6 @@
     }
 }
 
-/**
- *定位失败后，会调用此函数
- *@param error 错误号
- */
-- (void)didFailToLocateUserWithError:(NSError *)error{
-    WLLog(@"location error %@",error);
-    switch ([error code]) {
-        case kCLErrorDenied:{
-            UIAlertView *alet = [[UIAlertView alloc] initWithTitle:@"当前定位服务不可用" message:@"请到“设置->隐私->定位服务”中开启定位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-            [alet show];
-        }
-            break;
-        default:
-            break;
-    }
-}
-
 #pragma mark - BMKPoiSearchDelegate
 /**
  *返回POI搜索结果
