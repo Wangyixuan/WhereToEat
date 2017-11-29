@@ -88,8 +88,8 @@ BMKMapManager* _mapManager;
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
-    _locationManager.delegate = self;
-    [_locationManager startUserLocationService];
+    //请求定位服务
+    [WLSharedGlobalManager updateUserLocation];
 }
 
 

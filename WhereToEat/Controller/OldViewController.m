@@ -218,11 +218,14 @@
  *@param errorCode 错误号，@see BMKSearchErrorCode
  */
 - (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
-    //    WLLog(@"resultDetail %@",poiDetailResult);
+    WLLog(@"resultDetail lat%f  lon%f",poiDetailResult.pt.latitude,poiDetailResult.pt.longitude);
     WLLog(@"error %u",errorCode);
+    //搜索结果无错误 创建展示页面
     if (errorCode==0) {
         [self createPopViewWithDetailResult:poiDetailResult];
-    }else if (errorCode==5){
+    }
+    //有错误 重新搜索
+    else if (errorCode==5){
         [self.search poiDetailSearch:self.detailSearch];
     }
 }

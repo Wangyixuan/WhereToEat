@@ -203,21 +203,6 @@
 - (void)mapView:(BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi*)mapPoi{
      [self.keyWord resignFirstResponder];
     WLLog(@"地图标注");
-    //如果没有直接创建
-//    if (animatedAnnotation==nil) {
-//        animatedAnnotation = [[BMKPointAnnotation alloc]init];
-//        animatedAnnotation.title = mapPoi.text;
-//        animatedAnnotation.coordinate = mapPoi.pt;
-//        [_mapView addAnnotation:animatedAnnotation];
-//    }else{
-//        //如果已有 移除后创建
-//        [_mapView removeAnnotation:animatedAnnotation];
-//        animatedAnnotation=nil;
-//        animatedAnnotation = [[BMKPointAnnotation alloc]init];
-//        animatedAnnotation.title = mapPoi.text;
-//        animatedAnnotation.coordinate = mapPoi.pt;
-//        [_mapView addAnnotation:animatedAnnotation];
-//    }
 }
 
 //点击空白处 移除显示的标注
@@ -470,7 +455,8 @@
         [weakself presentViewController:navController animated:YES completion:nil];
     };
     popView.poisionBlock = ^(CLLocationCoordinate2D coord,NSString*name){
-        [weakself naviClickWithCrood:coord name:name];
+        [WLSharedGlobalManager updateUserLocation];
+        [WLSharedGlobalManager naviClickWithCrood:coord name:name];
         WLLog(@"导航");
     };
     popView.uploadBlock = ^(BMKPoiDetailResult *detailResult) {
@@ -503,27 +489,6 @@
     //发送请求
     [dataTask resume];
     
-}
-
-//导航
--(void)naviClickWithCrood:(CLLocationCoordinate2D)coord name:(NSString*)name{
-    //百度地图客户端
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"baidumap://map/"]]]) {
-        NSString *stringURL = [NSString stringWithFormat:@"baidumap://map/direction?origin=%.8f,%.8f&destination=%.8f,%.8f&&mode=driving",self.userRegion.center.latitude,self.userRegion.center.longitude,coord.latitude,coord.longitude];
-        NSURL *url = [NSURL URLWithString:stringURL];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    //原生地图
-    else{
-        double bdDestLat,bdDestLon;
-        bd_decrypt(coord.latitude, coord.longitude, &bdDestLat, &bdDestLon);
-        CLLocationCoordinate2D to = CLLocationCoordinate2DMake(bdDestLat, bdDestLon);
-    
-        MKMapItem *currentLocation = [MKMapItem mapItemForCurrentLocation];
-        MKMapItem *toLocation = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:to addressDictionary:nil]];
-    toLocation.name = name;
-        [MKMapItem openMapsWithItems:[NSArray arrayWithObjects:currentLocation, toLocation, nil] launchOptions:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:MKLaunchOptionsDirectionsModeDriving, [NSNumber numberWithBool:YES], nil] forKeys:[NSArray arrayWithObjects:MKLaunchOptionsDirectionsModeKey, MKLaunchOptionsShowsTrafficKey, nil]]];
-    }
 }
 
 //第一次进入显示引导页面

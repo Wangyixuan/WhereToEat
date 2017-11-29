@@ -62,16 +62,8 @@
             }
         } cancelButtonTitle:@"取消" otherButtonTitles:@"发送", nil];
     
-    }else if (indexPath.row == 3){
-        
-        [WCAlertView showAlertWithTitle:@"您确定要拨打" message:@"18401796766" customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
-            if(buttonIndex == 1)
-            {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://18401796766"]]];
-            }
-        } cancelButtonTitle:@"取消" otherButtonTitles:@"拨打", nil];
-        
-    }else if (indexPath.row == 4){
+    }
+    else if (indexPath.row == 3){
         WLLog(@"share");
         //判断是否有微信
         if ([WXApi isWXAppInstalled]) {
@@ -80,7 +72,7 @@
         }else{
             [SVProgressHUD showErrorWithStatus:@"您还没有安装微信" duration:2.0];
         }
-    }else if (indexPath.row == 5){
+    }else if (indexPath.row == 4){
         WLLog(@"反馈");
         OpinionViewController *opinionVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OpinionViewController"];
         [self.navigationController pushViewController:opinionVC animated:YES];
